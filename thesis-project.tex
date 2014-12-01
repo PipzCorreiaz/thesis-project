@@ -3,11 +3,14 @@
 \usepackage{amssymb}
 \setcounter{tocdepth}{3}
 \usepackage{graphicx}
+\usepackage{todonotes}
 
 \usepackage{url}
 \urldef{\mailfc}\path|filipacorreia@tecnico.ulisboa.pt| 
 \newcommand{\keywords}[1]{\par\addvspace\baselineskip
 \noindent\keywordname\enspace\ignorespaces#1}
+
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
 
 \begin{document}
 
@@ -24,7 +27,7 @@
 
 \input{./tex/0_abstract}
 \input{./tex/1_introduction}
-\input{./tex/2_goals}
+\input{./tex/2_background}
 \input{./tex/3_related_work}
 \input{./tex/4_proposed_architecture}
 \input{./tex/5_evaluation}
