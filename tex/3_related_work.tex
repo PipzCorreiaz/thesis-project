@@ -6,7 +6,7 @@ This section will present the state of the art related to this work. Since no re
 \subsection{Card games programs}
 \todo{change the title}
  
-There are many games that AI have been solving over the years. Although, the definition of "games" usually refers to zero-sum and perfect information ones. This kind of games is commonly solved by creating a tree search representing all the possible states. The greatest achievements are generally related to finding good heuristics to refine the search and also good prunings to reduce the space of search. An example of a game with the mentioned characteristics is chess.
+There are many games that \gls{ai} have been solving over the years. Although, the definition of "games" usually refers to zero-sum and perfect information ones. This kind of games is commonly solved by creating a tree search representing all the possible states. The greatest achievements are generally related to finding good heuristics to refine the search and also good prunings to reduce the space of search. An example of a game with the mentioned characteristics is chess.
 \todo{Do I refer the Russel Norvig book?!}
 
 As described in section \ref{background}, \emph{Sueca} is considered an imperfect information game. This uncertainty produces a high branching factor in the tree search. Thus, problems of this nature are being solved by other methods. Finding the optimal solution along the state tree is fairly impractical. Some possible approaches include considering the belief states about other players or trying to generalize the reward of a move by sampling the game considerable times.
@@ -14,7 +14,19 @@ As described in section \ref{background}, \emph{Sueca} is considered an imperfec
 
 \subsubsection{Monte Carlo Tree Search}
 
+\todo{Describing briefly MCTS in the beggining of this section}
+There are some successfully examples of card games solved by \gls{mcts}. Using \gls{pimc}, Ginsberg developed GIB\footnote{http://www.gibware.com/}, which was declared as the best computer bridge player in 2001. Another example is the Skat player\footnote{https://skatgame.net/} built by Buro in 2009.
+\todo{Do I need to reference these two programs? Cause I do not talk about them anywhere else (yet)! Or are the footnotes okay?}
+Despite of the fortunate outcomes, there still were difficulties in understanding the strong results of this algorithm.
 
+As a result, Buro in 2010 have analyzed carefully the expected PIMC' errors mentioned by critics. These mistakes lead him to find three different properties of a game and test its influences on the success of \gls{pimc}. The first property is \emph{leaf correlation}, which demonstrates how likely it is to affect a player's payoff in the neighbourhood of a leaf. The probability of all siblings having the same payoff values is higher as the correlation increases. Secondly, \emph{bias} indicates the chance of a player being preferred over the other. Finally, the last characteristic of a game that has been pointed is \emph{disambiguation factor}, that denotes how rapidly the hidden information is revealed. These properties have been tested in a set of experiments in both \gls{pimc} and a random player against an optimal Nash-equilibrium player. The performance of \gls{pimc} increases as the correlation value is higher. It has also been shown that bias does not considerably affect the success of \gls{pimc}. Finally, disambiguation has the greatest impact on the results of the algorithm. When this last value is higher, it means the game becomes more quickly into a perfect information game. Additionally, Buro demonstrates real game examples of theses properties, for Skat and Kuhn poker. Due to its properties configurations, Skat indicates a considerably good performance of \gls{pimc}. Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gls{pimc} also has a good performance when applied to \emph{Sueca}.
+
+
+\subsubsection{Improving state evaluation}
+
+While discussing imperfect information games, it is relevant to mention the need of inferring information. Predicting some of the opponent' cards would be valuable to select better actions in each state of the game.
+
+Buro in 2009, presents his work on state evaluation and inference that has been included in his Skat player. 
 
 
 \subsection{Human-robot interaction}

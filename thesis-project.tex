@@ -4,6 +4,8 @@
 \setcounter{tocdepth}{3}
 \usepackage{graphicx}
 \usepackage{todonotes}
+\usepackage{indentfirst}
+\usepackage[nomain,acronym]{glossaries}
 
 \usepackage{url}
 \urldef{\mailfc}\path|filipacorreia@tecnico.ulisboa.pt| 
@@ -32,7 +34,15 @@
 \input{./tex/4_proposed_architecture}
 \input{./tex/5_evaluation}
 \input{./tex/6_conclusion}
-\input{./tex/7_references}
+
+\nocite{*}
+\bibliographystyle{splncs03}
+\bibliography{references}
+
+\setacronymstyle{long-short}
+\newacronym{ai}{AI}{Artificial Intelligence}
+\newacronym{mcts}{MCTS}{Monte Carlo Tree Search}
+\newacronym{pimc}{PIMC}{Perfect Information Monte Carlo}
 
 
 \end{document}
