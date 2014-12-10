@@ -1,36 +1,109 @@
 \section{Related Work} \label{relatedwork}
 
-This section will present the state of the art related to this work. Since no relevant studies on \emph{Sueca} have been found, the research includes algorithms used in similar card games. It also presents existing robots that will allow the analyses on human-robot interaction.
+This section will present the state of the art related to this work.
+Since no relevant studies on \emph{Sueca} have been found, the research includes algorithms used in similar card games.
+It also presents existing robots that will allow the analyses on human-robot interaction.
+
 
 
 \subsection{Card games programs}
 \todo{change the title}
  
-There are many games that \gls{ai} have been solving over the years. Although, the definition of "games" usually refers to zero-sum and perfect information ones. This kind of games is commonly solved by creating a tree search representing all the possible states. The greatest achievements are generally related to finding good heuristics to refine the search and also good prunings to reduce the space of search. An example of a game with the mentioned characteristics is chess.
+There are many games that \gls{ai} have been solving over the years.
+Although, the definition of "games" usually refers to zero-sum and perfect information ones.
+This kind of games is commonly solved by creating a tree search representing all the possible states.
+The greatest achievements are generally related to finding good heuristics to refine the search and also good prunings to reduce the space of search.
+An example of a game with the mentioned characteristics is chess.
 \todo{Do I refer the Russel Norvig book?!}
 
-As described in section \ref{background}, \emph{Sueca} is considered an imperfect information game. This uncertainty produces a high branching factor in the tree search. Thus, problems of this nature are being solved by other methods. Finding the optimal solution along the state tree is fairly impractical. Some possible approaches include considering the belief states about other players or trying to generalize the reward of a move by sampling the game considerable times.
+
+As described in section \ref{background}, \emph{Sueca} is considered an imperfect information game.
+This uncertainty produces a high branching factor in the tree search.
+Thus, problems of this nature are being solved by other methods.
+Finding the optimal solution along the state tree is fairly impractical.
+Some possible approaches include considering the belief states about other players or trying to generalize the reward of a move by sampling the game considerable times.
+
 
 
 \subsubsection{Monte Carlo Tree Search}
 
+
 \todo{Describing briefly MCTS in the beggining of this section}
-There are some successfully examples of card games solved by \gls{mcts}. Using \gls{pimc}, Ginsberg developed \gls{gib}\footnote{http://www.gibware.com/}, which was declared as the best computer bridge player in 2001. Another example is the Skat player\footnote{https://skatgame.net/} built by Buro in 2009.
+There are some successfully examples of card games solved by \gls{mcts}.
+Using \gls{pimc}, Ginsberg developed \gls{gib}\footnote{http://www.gibware.com/}, which was declared as the best computer bridge player in 2001.
+Another example is the Skat player\footnote{https://skatgame.net/} built by Buro in 2009.
 \todo{Do I need to reference these two programs? Cause I do not talk about them anywhere else (yet)! Or are the footnotes okay?}
 Despite of the fortunate outcomes, there still were difficulties in understanding the strong results of this algorithm.
 
-As a result, Buro in 2010 have analyzed carefully the expected PIMC' errors mentioned by critics. These mistakes lead him to find three different properties of a game and test its influences on the success of \gls{pimc}. The first property is \emph{leaf correlation}, which demonstrates how likely it is to affect a player's payoff in the neighbourhood of a leaf. The probability of all siblings having the same payoff values is higher as the correlation increases. Secondly, \emph{bias} indicates the chance of a player being preferred over the other. Finally, the last characteristic of a game that has been pointed is \emph{disambiguation factor}, that denotes how rapidly the hidden information is revealed. These properties have been tested in a set of experiments in both \gls{pimc} and a random player against an optimal Nash-equilibrium player. The performance of \gls{pimc} increases as the correlation value is higher. It has also been shown that bias does not considerably affect the success of \gls{pimc}. Finally, disambiguation has the greatest impact on the results of the algorithm. When this last value is higher, it means the game becomes more quickly into a perfect information game. Additionally, Buro demonstrates real game examples of theses properties, for Skat and Kuhn poker. Due to its properties configurations, Skat indicates a considerably good performance of \gls{pimc}. Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gls{pimc} also has a good performance when applied to \emph{Sueca}.
+
+As a result, Buro in 2010 have analyzed carefully the expected PIMC' errors mentioned by critics.
+These mistakes lead him to find three different properties of a game and test its influences on the success of \gls{pimc}.
+The first property is \emph{leaf correlation}, which demonstrates how likely it is to affect a player's payoff in the neighbourhood of a leaf.
+The probability of all siblings having the same payoff values is higher as the correlation increases.
+Secondly, \emph{bias} indicates the chance of a player being preferred over the other.
+Finally, the last characteristic of a game that has been pointed is \emph{disambiguation factor}, that denotes how rapidly the hidden information is revealed.
+These properties have been tested in a set of experiments in both \gls{pimc} and a random player against an optimal Nash-equilibrium player.
+The performance of \gls{pimc} increases as the correlation value is higher.
+It has also been shown that bias does not considerably affect the success of \gls{pimc}.
+Finally, disambiguation has the greatest impact on the results of the algorithm.
+When this last value is higher, it means the game becomes more quickly into a perfect information game.
+Additionally, Buro demonstrates real game examples of theses properties, for Skat and Kuhn poker.
+Due to its properties configurations, Skat indicates a considerably good performance of \gls{pimc}.
+Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gls{pimc} also has a good performance when applied to \emph{Sueca}.
+
 
 
 \subsubsection{Game state inference}
 \todo{Opponent modelling is cosidered game state inference? Since i would like to further include those papers in this subsection?! }
 
-While discussing imperfect information games, it is relevant to mention  inference of information. Predicting some of the opponents' cards or other clues would be valuable to select better actions in each state of the game. This problem is known as finding the $P$(world\textbar move) for a move played by a player in an hypothetical world.
 
-Buro in 2009, presents his work on state evaluation and inference that has been included in his Skat player. His approach combine two techniques, one for evaluating the bidding and another for selecting hypothetical worlds during the game play. The former technique uses a logistic regression to evaluate the winning probability of each hand. In order to do this evaluation, it has been used 22 million Skat games as data base. This winning probability determines the strength of a hand and therefore can be used on the bidding. The second technique is mainly based on two heuristics. Fastest-cut-first search heuristic evaluates each move according to its beta-cutoff and sorts all the moves. Additionally, another heuristic is used to reduce the tree exploration. It groups cards by their strength value and considers, for example, 7\ding{168} and 8\ding{168} the same move, when holding both cards in a player's hand. The author compares his work to other similar ones and concludes the strength of his techniques lies at two central points. First, determining the $P$(world\textbar move) on offline data, instead of doing it in runtime. Lastly, his formulation is generalised in a way that it is possible to perform it on high-level features. The main difference between \emph{Sueca} and Skat is that the first one does not have the bidding phase. Due to this discrepancy, Buro's first technique would not be appropriate for the \emph{Sueca} game. Although, the search enhancements could be suitably applied since the game trees are identical.
+While discussing imperfect information games, it is relevant to mention inference of information.
+Predicting some of the opponents' cards or other clues would be valuable to select better actions in each state of the game.
+This problem is known as finding the $P$(world\textbar move) for a move played in an hypothetical world.
 
 
-Usually, opponent modelling uses optimal strategies to predict other players' actions. Therefore, these models tend to be overly defensive. Consequently, Buro in 2011 suggests a post-processing analysis that is able to infer opponent's qualities based on their decisions in a certain environment. The main idea is to classify each opponent with a mistake rate and use that value to be more or less defensive. This approach, called \gls{pipma}, computes a procedure after each episode of the game (in a trick-taking card-game it would be after each trick) to update incrementally the mistake rate of each the opponents. The authors have made some experiments in a Skat player and used the mistake rate to adjust the bidding behaviour during the game and the results were good. Despite the fact that \emph{Sueca} does not have the bidding phase, playing some cards under a given hand might be considered more or less aggressive. As a result, it would be interesting to model the opponents in a similar way to make better decisions.
+Buro in 2009, presents his work on state evaluation and inference that has been included in his Skat player.
+His approach combine two techniques, one for evaluating the bidding and another for selecting hypothetical worlds during the game play.
+The former technique uses a logistic regression to evaluate the winning probability of each hand.
+In order to do this evaluation, it has been used 22 million Skat games as data base.
+This winning probability determines the strength of a hand and therefore can be used on the bidding.
+The second technique is mainly based on two heuristics.
+Fastest-cut-first search heuristic evaluates each move according to its beta-cutoff and sorts all the moves.
+Additionally, another heuristic is used to reduce the tree exploration.
+It groups cards by their strength value and considers, for example, 7\ding{168} and 8\ding{168} the same move, when holding both cards in a player's hand.
+The author compares his work to other similar ones and concludes the strength of his techniques lies at two central points.
+First, determining the $P$(world\textbar move) on offline data, instead of doing it in runtime.
+Lastly, his formulation is generalised in a way that it is possible to perform it on high-level features.
+The main difference between \emph{Sueca} and Skat is that the first one does not have the bidding phase.
+Due to this discrepancy, Buro's first technique would not be appropriate for the \emph{Sueca} game.
+Although, the search enhancements could be suitably applied since the game trees are identical.
 
+
+Usually, opponent modelling uses optimal strategies to predict other players' actions.
+Therefore, these models tend to be overly defensive.
+Consequently, Buro in 2011 suggests a post-processing analysis that is able to infer opponent's qualities based on their decisions in a certain environment.
+The main idea is to classify each opponent with a mistake rate and use that value to be more or less defensive.
+This approach, called \gls{pipma}, computes a procedure after each episode of the game (in a trick-taking card-game, it would be after each trick) to update incrementally the mistake rate of each opponent.
+The authors made some experiments in a Skat player with very good results.
+The mistake rate adjusted the bidding behaviour during the game.
+Likewise, the search improvements reduced about 40\% of the search space.
+Despite the fact that \emph{Sueca} does not have the bidding phase, playing some cards under a given hand might be considered more or less aggressive.
+As a result, it would be interesting to model the opponents in a similar way to make better decisions.
+
+Another card game highly suitable to make opponent models is Poker.
+Predicting the players' moves can naturally affect the outcome of this game.
+In order to predict players' cards and their future actions, Posen et al. in 2010 reveal some research in this subject.
+Their opponent model starts with a prior distribution and changes over time with a differentiating function.
+The prior distribution allows it to make reasonable predictions while having insufficient information.
+In addition, the relational probability tree algorithm TILDE builds a decision tree with the stored samples of a player.
+This decision tree represents the differentiating function that will adapt the initial prior distribution.
+Besides modelling the opponents, the authors present how to integrate this function with \gls{mcts}.
+Instead of sampling the cards randomly, \gls{mcts} uses the card predictions.
+Therefore, the algorithm does not need a numerous amount of iterations to reach a uniform card distribution.
+Furthermore, the probabilities of action predictions are used in the selection phase of the \gls{mcts}, according to the state of the game and the sampled cards.
+Since \gls{mcts} is the potential choice to solve \emph{Sueca}, a similar opponent model can also improve the capabilities of this algorithm, as shown in Poker.
+
+
+ 
 
 \subsection{Human-robot interaction}
