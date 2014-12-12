@@ -7,12 +7,12 @@ It also presents existing robots that will allow the analyses on human-robot int
 
 
 \subsection{Card games programs}
-\todo{change the title}
  
-There are many games that \gls{ai} have been solving over the years.
-Although, the definition of "games" usually refers to zero-sum and perfect information ones.
+ 
+There are many games that \gls{ai} has been solving over the years.
+However, the definition of "games" usually refers to zero-sum and perfect information games.
 This kind of games is commonly solved by creating a tree search representing all the possible states.
-The greatest achievements are generally related to finding good heuristics to refine the search and also good prunings to reduce the space of search.
+The greatest achievements are generally based on finding good heuristics to refine the search and also good prunings to reduce the space of search.
 An example of a game with the mentioned characteristics is chess.
 \todo{Do I refer the Russel Norvig book?!}
 
@@ -28,7 +28,31 @@ Some possible approaches include considering the belief states about other playe
 \subsubsection{Monte Carlo Tree Search}
 
 
-\todo{Describing briefly MCTS in the beggining of this section}
+\gls{mcts} is a family of algorithms, which goal is to find optimal decisions.
+This method incrementally builds a search tree according to the results of previous iterations.
+The search tree is expanded by randomly sampling the nodes.
+Usually, it is divided into four steps, as described bellow.
+\begin{itemize}
+  \item Selection: Select a child node through a selection policy. This policy must balance between unexplored areas of the tree and promising nodes that may lead to higher rewards.
+  \item Expansion: Expand the selected node to add one or more nodes to the tree, according to the available actions.
+  \item Simulation: Select an expanded node through a simulation or default policy to produce an outcome.
+  \item Backpropagation: Propagate the reward value of all the selected nodes in order to update their statistics.
+\end{itemize}
+
+\todo{Do I need to give more characteristics of mcts? Or strengths? Or weaknesses?}
+According to Browne et al. in 2012, finding a suitable variation of \gls{mcts} is the greatest challenge of applying the algorithm to a specific environment.
+The most popular algorithm of \gls{mcts} family is \gls{uct} algorithm.
+The \gls{uct} variation differs from the original in the selection phase.
+It uses a maximization function to evaluate the available nodes.
+This function establishes an equilibrium between exploration and exploitation, through a given constant value.
+A considerable amount of iterations will approximate the \gls{uct} to a minimax tree.
+Consequently, the produced results are nearly optimal.
+
+\todo{Should these last parapgraphs be included in the Background section instead?}
+
+\paragraph{}
+
+
 There are some successfully examples of card games solved by \gls{mcts}.
 Using \gls{pimc}, Ginsberg developed \gls{gib}\footnote{http://www.gibware.com/}, which was declared as the best computer bridge player in 2001.
 Another example is the Skat player\footnote{https://skatgame.net/} built by Buro in 2009.
@@ -36,7 +60,7 @@ Another example is the Skat player\footnote{https://skatgame.net/} built by Buro
 Despite of the fortunate outcomes, there still were difficulties in understanding the strong results of this algorithm.
 
 
-As a result, Buro in 2010 have analyzed carefully the expected PIMC' errors mentioned by critics.
+As a result, Buro in 2010 have analyzed carefully the expected \gls{pimc}' errors mentioned by critics.
 These mistakes lead him to find three different properties of a game and test its influences on the success of \gls{pimc}.
 The first property is \emph{leaf correlation}, which demonstrates how likely it is to affect a player's payoff in the neighbourhood of a leaf.
 The probability of all siblings having the same payoff values is higher as the correlation increases.
@@ -50,6 +74,8 @@ When this last value is higher, it means the game becomes more quickly into a pe
 Additionally, Buro demonstrates real game examples of theses properties, for Skat and Kuhn poker.
 Due to its properties configurations, Skat indicates a considerably good performance of \gls{pimc}.
 Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gls{pimc} also has a good performance when applied to \emph{Sueca}.
+
+
 
 
 
@@ -102,7 +128,6 @@ Instead of sampling the cards randomly, \gls{mcts} uses the card predictions.
 Therefore, the algorithm does not need a numerous amount of iterations to reach a uniform card distribution.
 Furthermore, the probabilities of action predictions are used in the selection phase of the \gls{mcts}, according to the state of the game and the sampled cards.
 Since \gls{mcts} is the potential choice to solve \emph{Sueca}, a similar opponent model can also improve the capabilities of this algorithm, as shown in Poker.
-
 
  
 
