@@ -2,35 +2,48 @@
 
 The ageing population has been increasing over the years.
 As a result, some concerns about the elderly have also augmented.
-Most of the time, they have special needs due to their physical disabilities.
+Most of the time, there are special needs due to their physical disabilities.
 Similarly, there is a worry about keeping them entertained.
 It is crucial to find appropriate activities for them.
 This activities may range from training their cognitive functions to just accompany them.
 
 In parallel with this idea, computer programs that play games have been an interesting challenge over the years for \gls{ai}.
 From board games to card games, or even role-playing games, the idea is to create a rational agent capable of evaluating the game and trying to achieve the best outcome.
-Deep Blue has raised the bar for developing this kind of games, considering it was the first one capable of defeating a human world champion in 1997.
+Deep Blue, Chinook and Watson are good examples that have raised the bar for developing this kind of games.
+Deep Blue is a remarkable chess player and has defeated the human world champion in 1997.
+\todo{Missing references}
+Schaeffer et al. have solved Checkers with Chinook program and proved the game leads to a draw with two optimal players.
+Lastly, Watson is the \gls{qa} system that started competing with Jeopardy champions in 2008.
+\gls{qa} systems are so impressive due to the scope of \gls{ai} it includes (i.e. natural language processing, machine learning, knowledge representation, automated reasoning, and information retrieval).
 
-Besides building programs that try to think rationally or humanly, AI has also another branch that aims to act humanly.
-This concern arises from the inclusion of robots into man's life.
-Most of theses robots' purpose is doing certain tasks that are currently being done by humans.
+Besides building programs that try to think rationally or humanly, \gls{ai} has also another branch that aims to act humanly.
+This concern arises from the inclusion of robots in humans' life.
+Most of theses robots' purpose is doing certain tasks that are currently being done by humans (i.e. vacuum the floor, play football or drive a car).
 Consequently, they have to behave properly in that environment.
 Considering these robots are surrounded by humans, there is also another relevant concern with the way they interact and communicate with people.
 The human-robot interaction field explores the social integration of robots with humans.
-
-As a result, the goal of this project is to integrate a social robot with three elderly humans in a card game scenario.
+As a result, the goal of this project is to integrate a social robot with aged humans in a card game scenario.
 The chosen card game is \emph{Sueca}, a well known Portuguese game among the ageing population.
 It is a great opportunity to relate the concerns mentioned above.
-
 On one hand, this agent should play the game correctly.
-After analyzing the given hand, dealt at the begging of the game, it should make good choices about what cards should be played.
-
+After analyzing the given hand, dealt at the beginning of the game, it should make good choices about what cards should be played.
 On the other hand, this embodied agent should act accordingly to the environment of this scenario.
 Since \emph{Sueca} is a four-player game with two teams, it involves an opponent and a companion role.
-Every player should be engaged in the game with its verbal interaction and behaviors.
+Every player should be engaged in the game with its verbal interaction and behaviours.
 
 \todo{Talk about the proposed architecture}
 
 The next section presents the state-of-art of playing card-games and human-robot-interaction with elderly.
 The report proceeds with the proposed architecture (section \ref{architecture}).
 Finally, it covers the evaluation methodology (section \ref{evaluation}). 
+
+
+\todo{Esta seccao vem no fim da introducao?}
+\subsection{Goals}
+The current section aims to recap and summarise all the goals mentioned above.
+This list enumerates the main objectives of this project:
+\begin{itemize}
+\item Develop an agent capable of playing and winning the \emph{Sueca} card game;
+\item Develop the social behaviours for an embodied agent that acts according to the game states (i.e. words and moves);
+\todo{Tenho mais objectivos?}
+\end{itemize}
