@@ -1,12 +1,17 @@
-\subsection{Card games programs}
+\subsection{Card games}
  
  
 There are many games that \gls{ai} has been solving over the years.
 However, the definition of "games" usually refers to zero-sum and perfect information games.
 This kind of games is commonly solved by creating a tree search representing all the possible states.
 The greatest achievements are generally based on finding good heuristics to refine the search and also good prunings to reduce the space of search.
-An example of a game with the mentioned characteristics is chess.
-\todo{Do I refer the Russel Norvig book?!}
+\emph{Deepblue} can exemplify this idea.
+It uses an iterative-deepening alpha-beta search and the key of its success is mostly the null move heuristic and the futility pruning.
+Another example is \emph{Chinook}, also a perfect information game that was solved using alpha-beta search.
+\todo[color=yellow]{Refer the Russel Norvig book!}
+On the other hand, Bridge can illustrate how imperfect information games have been addressed in the past.
+Bridge Baron was the first computer bridge champion and its program used some planning techniques.
+Subsequently, GIB (also a computer bridge champion) was the first using the \gls{mcts} method on Bridge.
 
 
 As described in section \ref{background}, \emph{Sueca} is considered an imperfect information game.
