@@ -1,2 +1,36 @@
 \section{Proposed Architecture} \label{architecture}
 
+The current section will describe how the two first goals of
+Section~\ref{sec:goals} will be addressed.
+Firstly, it presents the chosen approaches in order to build the \emph{Sueca} player (Section \ref{sec:sueca_solution}).
+Lastly, it introduces the conceptual model and the architecture of the physical embodied agent that reacts socially according to the game state (Section \ref{sec:social_solution}).
+
+
+\subsection{\emph{Sueca}}
+\label{sec:sueca_solution}
+
+Currently, there are not artificial players of the \emph{Sueca} card game.
+Research has shown that the state of the art of imperfect information games are based on Monte Carlo methods.
+To build the \emph{Sueca} card game, the chosen approach is similar to what Furtak et. al. have done in the Skat card game.
+These two games are identical, excluding the nonexistent bidding phase on \emph{Sueca}.
+Furtak et. al. have explored how \gls{pimc}'s results vary according to some of the game's properties and proved its benefits on Skat.
+Due to the affinity between the two games, it is predictable that the results of applying \gls{pimc} to \emph{Sueca} are also satisfying.
+
+Furthermore, this \emph{Sueca} player will play against aged people.
+Since they are not world champions or are not even at a professional level, the power of the artificial player must be balanced.
+On one hand, the idea is to create a challenging environment for the elderly.
+On the other hand, an existing concern is not to devastate the self-esteem of them.
+The motivation of this work is to create a pleasing and, at the same time, stimulating activity for the elderly.
+
+Additionally, a possible development strategy to follow is \gls{iimc}.
+Furtak et. al. shown how this algorithm can improve the results of their Skat player.
+Depending on the results of applying \gls{pimc} to our domain, it will be considered a further upgrade to the \emph{Sueca} player.
+
+To reinforce the sampling phase of \gls{pimc}, it will be used an opponent modelling.
+Instead of using the random sampling method of the original \gls{mcts}, this opponent modelling...
+\todo{Conclude the opponent modelling propose.}
+
+
+\subsection{The social robot in the game context}
+\label{sec:social_solution}
+
