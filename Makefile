@@ -2,7 +2,7 @@
 TEX=pdflatex
 BIB=bibtex
 
-FILENAME=main
+FILENAME=thesis-project
 TEXFILE=$(FILENAME).tex
 PDFFILE=$(FILENAME).pdf
 
