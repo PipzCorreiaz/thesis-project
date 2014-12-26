@@ -29,7 +29,7 @@ Depending on the results of applying \gls{pimc} to our domain, it will be consid
 To reinforce the sampling phase of \gls{pimc}, it will be used an opponent modelling similar to what has been done in Poker.
 This model will include cards and actions predictions.
 Instead of using the random sampling method of the original \gls{pimc}, cards probabilities will influence the cards sampling in each iteration of the algorithm.
-After sampling each world, actions predictions will be used in the simulation of a game to influece the opponents' moves.
+After sampling each world, actions predictions will be used in the simulation of a game to influence the opponents' moves.
 This approach aims to introduce some of the common mistakes that the usual player makes, instead of considering always optimal moves.
 \todo{Especificar como sera feito? I.e. numero de amostras e procedimento?}
 
@@ -37,14 +37,33 @@ This approach aims to introduce some of the common mistakes that the usual playe
 \subsection{The social robot in the game context}
 \label{sec:social_solution}
 
+Along with the \emph{Sueca} player, this work aims to develop a robot that is socially present in the environment of the game scenario.
+In order to achieve this goal, many concerns arise.
+Down below, the model presented in Figure~\ref{fig:model} tries to solve and organise all the components involved.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=1\textwidth]{./img/model}
+  \caption{Structure of the social robot that plays \emph{Sueca}}
+\label{fig:model}
+\end{figure}
+
+This model distinguishes physical components from virtual ones.
+Some entities are not detailed on the scope of this project and are presented as both physical and virtual components.
+The human players, Users, will play with physical cards on the top of a Touch Table.
+Every game action is detected and communicated to the Game Application.
+This module includes all the reasoning about the game and decides the robot actions related to the game.
+However, the robot actions also involve social behaviours and this is managed by the Behaviour Planner.
+
+
 The state of the art robots for elderly is focused on service robots to guide them in their daily tasks.
 Considering the companion type robots for aged people, existing technology is focused on therapy especially for the disabled.
-On the other hand, the proposed robot aims to interact with elderly in a specific scenario for an entertainment and stimulating purpose.
+On the other hand, the proposed robot aims to interact with elderly in a specific scenario for an entertainment and stimulating activity.
 The most similar robot in a comparable scenario is EMYS, the Risk player from Pereira et. al. work.
 Despite the target audience, that is not the elderly, this work fully inspired the approach that will be taken.
 
 Collecting data from user studies in a scenario like a card game is crucial to develop social behaviours in an embodied agent.
-One of the first steps
+One of the first stepsw
 
 
 
