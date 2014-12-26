@@ -54,16 +54,26 @@ The human players, Users, will play with physical cards on the top of a Touch Ta
 Every game action is detected and communicated to the Game Application.
 This module includes all the reasoning about the game and decides the robot actions related to the game.
 However, the robot actions also involve social behaviours and this is managed by the Behaviour Planner.
+As a result, the Behaviour Planner receives all the sensory input and the game decisions in order to produce an appropriate output and communicate it to the robot.
+
+The architecture that will instantiate the model described above is partially decided.
+The virtual layer will be mainly covered by Thalamus framework that allows all the communication between the mentioned entities.
+The chosen Behaviour Planner is Skene due to its powerful linkage to the Game Application module.
+The Game Application core will be processed offline with the algorithms described in Section~\ref{sec:sueca_solution}.
+The robot will initially be \gls{emys} due to its expressiveness.
+Nonetheless another robots might be used considering the users' preferences.
+Finally, the undecided components are the sensory inputs.
+Pereira et. al. have shown the importance of collecting data from user studies.
+Theses components will be settled further, after some field research with \emph{Sueca} players.
 
 
 The state of the art robots for elderly is focused on service robots to guide them in their daily tasks.
 Considering the companion type robots for aged people, existing technology is focused on therapy especially for the disabled.
 On the other hand, the proposed robot aims to interact with elderly in a specific scenario for an entertainment and stimulating activity.
-The most similar robot in a comparable scenario is EMYS, the Risk player from Pereira et. al. work.
+The most similar robot in a comparable scenario is \gls{emys}, the Risk player from Pereira et. al. work.
 Despite the target audience, that is not the elderly, this work fully inspired the approach that will be taken.
 
-Collecting data from user studies in a scenario like a card game is crucial to develop social behaviours in an embodied agent.
-One of the first stepsw
+
 
 
 
