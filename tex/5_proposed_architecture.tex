@@ -1,4 +1,4 @@
-\section{Proposed Architecture} \label{architecture}
+\section{Proposed Architecture} \label{sec:architecture}
 
 The current section will describe how the two first goals of
 Section~\ref{sec:goals} will be addressed.
@@ -51,17 +51,21 @@ Down below, the model presented in Figure~\ref{fig:model} tries to solve and org
 This model distinguishes physical components from virtual ones.
 Some entities are not detailed on the scope of this project and are presented as both physical and virtual components.
 The human players, Users, will play with physical cards on the top of a Touch Table.
-Every game action is detected and communicated to the Game Application.
-This module includes all the reasoning about the game and decides the robot actions related to the game.
-However, the robot actions also involve social behaviours and this is managed by the Behaviour Planner.
-As a result, the Behaviour Planner receives all the sensory input and the game decisions in order to produce an appropriate output and communicate it to the robot.
+Every game action is detected and communicated to both the \gls{ai} module and the Perception Manager.
+The Perception Manager receives information from all the sensory components and also the table events of the game.
+The gls{ai} module includes all the reasoning about the game and decides the robot next move of the game.
+However, the robot actions also involve social behaviours and this is managed by the Social Player.
+The Social Player balances the gls{ai} decision, sensory components and table events that represent states of the game.
+Its aims to produce appropriate behaviours to each situations.
+For instance, being the last player of a trick and taking the two highest cards of a suit by playing a trump card is an exciting move and should produce such an exciting reaction on the robot.
+Lastly, the Behaviour Planner builds a suitable plan to execute the chosen behaviour while considering the state of the embodied agent.
 
 The architecture that will instantiate the model described above is partially decided.
 The virtual layer will be mainly covered by Thalamus framework that allows all the communication between the mentioned entities.
-The chosen Behaviour Planner is Skene due to its powerful linkage to the Game Application module.
-The Game Application core will be processed offline with the algorithms described in Section~\ref{sec:sueca_solution}.
-The robot will initially be \gls{emys} due to its expressiveness.
-Nonetheless other robots might be used considering the users' preferences.
+The chosen Behaviour Planner is Skene.
+The \gls{ai} module will be processed offline with the algorithms described in Section~\ref{sec:sueca_solution}.
+The embodied agent will initially be \gls{emys} due to its expressiveness.
+Nonetheless other robots might be further used considering the users' preferences.
 Finally, the undecided components are the sensory inputs.
 Pereira et. al. have shown the importance of collecting data from user studies.
 Theses components will be settled further, after some field research with \emph{Sueca} players.

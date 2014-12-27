@@ -6,15 +6,21 @@ Most of the time, there are special needs due to their physical disabilities.
 Similarly, there is a worry about keeping them entertained.
 It is crucial to find appropriate activities for them.
 This activities may range from training their cognitive functions to just accompany them.
+Hence, all these concerns are commonly being solved with the help of technology.
+For instance, there is software suitable for training memory problems due to Alzheimer. \todo{Trancoso}
+Another example that illustrates the presence of technology in the elderly lives is a robot.
+There already are robots in their homes remembering them to take the medicines or vacuuming the floor.
+However, occupying their free time with pleasuring activities continues to be a challenging task.
+
 
 In parallel with this idea, computer programs that play games have been an interesting challenge over the years for \gls{ai}.
-From board games to card games, or even role-playing games, the idea is to create a rational agent capable of evaluating the game and trying to achieve the best outcome.
-Deep Blue, Chinook and Watson are good examples that have raised the bar for developing this kind of games.
+From board games to card games, or even role-playing games, the idea is to create rational agents capable of evaluating the game and achieving the best outcome.
+Deep Blue, Chinook and Watson are good examples that have raised the bar for developing this kind of agents.
 Deep Blue is a remarkable chess player and has defeated the human world champion in 1997.
 \todo{Missing references}
 Schaeffer et al. have solved Checkers with Chinook program and proved the game leads to a draw with two optimal players.
 Lastly, Watson is the \gls{qa} system that started competing with Jeopardy champions in 2008.
-\gls{qa} systems are so impressive due to the scope of \gls{ai} it includes (i.e. natural language processing, machine learning, knowledge representation, automated reasoning, and information retrieval).
+\gls{qa} systems are so impressive due to the scope of \gls{ai} they include (i.e. natural language processing, machine learning, knowledge representation, automated reasoning, and information retrieval).
 
 Besides building programs that try to think rationally or humanly, \gls{ai} has also another branch that aims to act humanly.
 This concern arises from the inclusion of robots in humans' life.
@@ -22,7 +28,11 @@ Most of theses robots' purpose is doing certain tasks that are currently being d
 Consequently, they have to behave properly in that environment.
 Considering these robots are surrounded by humans, there is also another relevant concern with the way they interact and communicate with people.
 The human-robot interaction field explores the social integration of robots with humans.
-As a result, the goal of this project is to integrate a social robot with aged humans in a card game scenario.
+
+Card games are a good example of an activity that aged people enjoy doing to occupy free time.
+This opportunity is also an unsolved challenge for \gls{ai}.
+Furthermore, including this artificial player into an embodied agent brings \gls{hri} concerns.
+The goal of this project is to integrate a social robot with aged humans in a card game scenario.
 The chosen card game is \emph{Sueca}, a well known Portuguese game among the ageing population.
 It is a great opportunity to relate the concerns mentioned above.
 On one hand, this agent should play the game correctly.
@@ -31,21 +41,23 @@ On the other hand, this embodied agent should act accordingly to the environment
 Since \emph{Sueca} is a four-player game with two teams, it involves an opponent and a companion role.
 Every player should be engaged in the game with its verbal interaction and behaviours.
 
-\todo[color=yellow]{Talk about the proposed architecture}
 
-The next section presents the state-of-art of playing card-games and human-robot-interaction with elderly.
-The report proceeds with the proposed architecture (section \ref{architecture}).
-Finally, it covers the evaluation methodology (section \ref{evaluation}). 
-
-
-\todo{Esta seccao vem no fim da introducao?}
 \subsection{Goals}
 \label{sec:goals}
 
-The current section aims to recap and summarise all the goals mentioned above.
-This list enumerates the main objectives of this project:
+The main goals of this project are:
 \begin{itemize}
 \item Develop an agent capable of playing and winning the \emph{Sueca} card game;
-\item Develop the social behaviours for an embodied agent that acts according to the game states (i.e. words and moves);
-\todo{Tenho mais objectivos?}
+\item Include social behaviours on an embodied agent in order to act according to the game state;
+\item Evaluate the correctness and advantadges of the proposed system.
 \end{itemize}
+
+
+\todo{Estrelinha}
+
+The next section presents some definitions that help the reader understanding the problems further mentioned (Section~\ref{sec:background}).
+The report proceeds with the state-of-art of playing card-games and human-robot-interaction with elderly (Section~\ref{sec:relatedwork}).
+Addionally, it is revealed a pilot user study that has already been done (Section~\ref{sec:userstudies}).
+Finally, it is presented the proposed architecture, its evaluation methodology and the final conclusions (respectively, Sections~\ref{sec:architecture}, \ref{sec:evaluation} and \ref{sec:conclusion}).
+
+
