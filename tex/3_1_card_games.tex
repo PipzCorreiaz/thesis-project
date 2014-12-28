@@ -1,18 +1,18 @@
-\subsection{Card games}
+\subsection{\gls{ai} in games}
  
  
 There are many games that \gls{ai} has been solving over the years.
-However, the definition of "games" usually refers to zero-sum and perfect information games \cite{Breazeal2004a}.
+However, the definition of "games" usually refers to zero-sum and perfect information games.
 This kind of games is commonly solved by creating a tree search representing all the possible states.
 The greatest achievements are generally based on finding good heuristics to refine the search and also good prunings to reduce the space of search.
-\emph{Deepblue} can exemplify this idea.
+Deepblue can exemplify this idea.
 It uses an iterative-deepening alpha-beta search and the key of its success is mostly the null move heuristic and the futility pruning.
-Another example is \emph{Chinook}, also a perfect information game that was solved using alpha-beta search.
-\todo[color=yellow]{Refer the Russel Norvig book!}
+Another example is Chinook, also a perfect information game that was solved using alpha-beta search.
 On the other hand, Bridge can illustrate how imperfect information games have been addressed in the past.
 Bridge Baron was the first computer bridge champion and its program used some planning techniques.
-Subsequently, GIB was the next computer bridge champion and the first using the \gls{mcts} method on Bridge.
+Subsequently, GIB was the next computer bridge champion and the first using the Monte Carlo Methods on Bridge.
 
+\todo{A pragraph justifying the nonusage of other approaches}
 
 As described in section \ref{sec:background}, \emph{Sueca} is considered an imperfect information game.
 This uncertainty produces a high branching factor in the tree search.
@@ -22,17 +22,18 @@ Some possible approaches include considering the belief states about other playe
 
 
 
-\subsubsection{Monte Carlo Tree Search}
+\subsubsection{Monte Carlo-based Methods}
 
 
-There are some successfully examples of card games solved by \gls{mcts}.
-Using \gls{pimc}, Ginsberg developed \gls{gib}\footnote{http://www.gibware.com/}, which was declared as the best computer bridge player in 2001.
+There are some successfully examples of card games solved by Monte Carlo Methods.
+\todo[color=yellow]{Mention difference between MCTS and PIMC}
+Using \gls{pimc}, Ginsberg developed \gls{gib}\footnote{http://www.gibware.com/} \cite{Ginsberg2001}, which was declared as the best computer bridge player in 2001.
 Another example is the Skat player\footnote{https://skatgame.net/} built by Buro in 2009.
 \todo[color=yellow]{Talk a bit more about these!}
 Despite of the fortunate outcomes, there still were difficulties in understanding the strong results of this algorithm.
 
 
-As a result, Buro in 2010 have analyzed carefully the expected \gls{pimc}' errors mentioned by critics.
+As a result, Long et. al. have analyzed carefully the expected \gls{pimc}' errors mentioned by critics \cite{Long2010}.
 These mistakes lead him to find three different properties of a game and test its influences on the success of \gls{pimc}.
 The first property is \emph{leaf correlation}, which demonstrates how likely it is to affect a player's payoff in the neighbourhood of a leaf.
 The probability of all siblings having the same payoff values is higher as the correlation increases.
@@ -47,12 +48,11 @@ Additionally, Buro demonstrates real game examples of theses properties, for Ska
 Due to its properties configurations, Skat indicates a considerably good performance of \gls{pimc}.
 Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gls{pimc} also has a good performance when applied to \emph{Sueca}.
 
+\todo[color=yellow]{IIMC}
 
 
 
-
-\subsubsection{Game state inference}
-\todo{Opponent modelling is cosidered game state inference? Or should I change the title?}
+\subsubsection{Game State Inference \& Opponent Modeling}
 
 
 While discussing imperfect information games, it is relevant to mention inference of information.
@@ -60,7 +60,7 @@ Predicting some of the opponents' cards or other clues would be valuable to sele
 This problem is known as finding the $P$(world\textbar move) for a move played in an hypothetical world.
 
 
-Buro in 2009, presents his work on state evaluation and inference that has been included in his Skat player.
+Buro in 2009 \cite{Buro} presented his work on state evaluation and inference that has been included in his Skat player.
 His approach combine two techniques, one for evaluating the bidding and another for selecting hypothetical worlds during the game play.
 The former technique uses a logistic regression to evaluate the winning probability of each hand.
 In order to do this evaluation, it has been used 22 million Skat games as data base.
@@ -79,7 +79,7 @@ Although, the search enhancements could be suitably applied since the game trees
 
 Usually, opponent modelling uses optimal strategies to predict other players' actions.
 Therefore, these models tend to be overly defensive.
-Consequently, Buro in 2011 suggests a post-processing analysis that is able to infer opponent's qualities based on their decisions in a certain environment.
+Consequently, Long and Buro in 2011 \cite{Long2009} suggests a post-processing analysis that is able to infer opponent's qualities based on their decisions in a certain environment.
 The main idea is to classify each opponent with a mistake rate and use that value to be more or less defensive.
 This approach, called \gls{pipma}, computes a procedure after each episode of the game (in a trick-taking card-game, it would be after each trick) to update incrementally the mistake rate of each opponent.
 The authors made some experiments in a Skat player with very good results.
@@ -90,7 +90,7 @@ As a result, it would be interesting to model the opponents in a similar way to 
 
 Another card game highly suitable to make opponent models is Poker.
 Predicting the players' moves can naturally affect the outcome of this game.
-In order to predict players' cards and their future actions, Posen et al. in 2010 reveal some research in this subject.
+In order to predict players' cards and their future actions, Posen et al. in 2010 \cite{Ponsen2008} reveal some research in this subject.
 Their opponent model starts with a prior distribution and changes over time with a differentiating function.
 The prior distribution allows it to make reasonable predictions while having insufficient information.
 In addition, the relational probability tree algorithm TILDE builds a decision tree with the stored samples of a player.
