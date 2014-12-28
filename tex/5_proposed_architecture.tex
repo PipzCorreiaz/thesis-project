@@ -2,7 +2,7 @@
 
 The current section will describe how the two first goals of
 Section~\ref{sec:goals} will be addressed.
-Firstly, it presents the chosen approaches in order to build the \emph{Sueca} player (Section \ref{sec:sueca_solution}).
+Firstly, it presents the chosen approaches in order to build the artificial \emph{Sueca} player (Section \ref{sec:sueca_solution}).
 Lastly, it introduces the conceptual model and the architecture of the physical embodied agent that reacts socially according to the game state (Section \ref{sec:social_solution}).
 
 
@@ -11,9 +11,9 @@ Lastly, it introduces the conceptual model and the architecture of the physical 
 
 Currently, there are not artificial players of the \emph{Sueca} card game.
 Research has shown that the state of the art of imperfect information games is based on Monte Carlo methods.
-To build the \emph{Sueca} card game, the chosen approach is similar to what Furtak et. al. have done in the Skat card game.
+To build the \emph{Sueca} card game, the chosen approach is similar to what Buro et. al. has done in the Skat card game.
 These two games are identical, excluding the nonexistent bidding phase on \emph{Sueca}.
-Furtak et. al. have explored how \gls{pimc}'s results vary according to some of the game's properties and proved its benefits on Skat.
+Furtak et. al. have explored how \gls{pimc}'s results vary according to some of the game's properties and proved its benefits on Skat \cite{Long2010}.
 Due to the affinity between the two games, it is predictable that the results of applying \gls{pimc} to \emph{Sueca} are also satisfying.
 
 Furthermore, this \emph{Sueca} player will play against aged people.
@@ -23,15 +23,15 @@ On the other hand, an existing concern is not to devastate the self-esteem of th
 The motivation of this work is to create a pleasing and, at the same time, stimulating activity for the elderly.
 
 Additionally, a possible development strategy to follow is \gls{iimc}.
-Furtak et. al. shown how this algorithm can improve the results of their Skat player.
+Furtak et. al. shown how this algorithm can improve the results of their Skat player \cite{Furtak}.
 Depending on the results of applying \gls{pimc} to our domain, it will be considered a further upgrade to the \emph{Sueca} player.
 
-To reinforce the sampling phase of \gls{pimc}, it will be used an opponent modelling similar to what has been done in Poker.
+To reinforce the sampling phase of \gls{pimc}, it will be used an opponent modelling similar to what has been done in Poker \cite{Ponsen2008}.
 This model will include cards and actions predictions.
 Instead of using the random sampling method of the original \gls{pimc}, cards probabilities will influence the cards sampling in each iteration of the algorithm.
 After sampling each world, actions predictions will be used in the simulation of a game to influence the opponents' moves.
 This approach aims to introduce some of the common mistakes that the usual player makes, instead of considering always optimal moves.
-\todo{Especificar como sera feito? I.e. numero de amostras e procedimento?}
+It will be collected several instances of \emph{Sueca} games to model a common player.
 
 
 \subsection{The social robot in the game context}
@@ -61,8 +61,8 @@ For instance, being the last player of a trick and taking the two highest cards 
 Lastly, the Behaviour Planner builds a suitable plan to execute the chosen behaviour while considering the state of the embodied agent.
 
 The architecture that will instantiate the model described above is partially decided.
-The virtual layer will be mainly covered by Thalamus framework that allows all the communication between the mentioned entities.
-The chosen Behaviour Planner is Skene.
+The virtual layer will be mainly covered by Thalamus framework that allows all the communication between the mentioned entities \cite{Ribeiro}.
+The chosen Behaviour Planner is Skene \cite{Ribeiroa}.
 The \gls{ai} module will be processed offline with the algorithms described in Section~\ref{sec:sueca_solution}.
 The embodied agent will initially be \gls{emys} due to its expressiveness.
 Nonetheless other robots might be further used considering the users' preferences.
