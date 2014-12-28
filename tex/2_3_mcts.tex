@@ -21,13 +21,11 @@ It uses a maximisation function to evaluate the available nodes, according to th
     UCT = \overline{X}_j + 2C_p\sqrt{\frac{2\ln n}{n_j}}
 \end{equation}
 
-\todo{Review text}
-
 It models the reward of each child node as an independent multiarmed bandit problem.
 This means that besides considering the already obtained average reward of a child node, it also considers the maximum expected gain of that child node.
 This function establishes an equilibrium between exploitation and exploration.
 Exploitation is evaluated in the first term of the equation by considering the average reward of a child node.
-The exploration is manipulated in the second term.
+The exploration is manipulated in the second term by balancing the amount of times the parent node and the child node $j$ have been visited (respectively, $n$ and $n_j$).
 A considerable amount of iterations will approximate the \gls{uct} to a minimax tree.
 Consequently, the produced results are nearly optimal.
 
