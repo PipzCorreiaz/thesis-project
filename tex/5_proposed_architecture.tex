@@ -9,7 +9,7 @@ Lastly, it introduces the conceptual model and the architecture of the physical 
 \subsection{\emph{Sueca}}
 \label{sec:sueca_solution}
 
-Currently, there are not artificial players of the \emph{Sueca} card game.
+Currently, there are no artificial players of the \emph{Sueca} card game.
 Research has shown that the state of the art of imperfect information games is based on Monte Carlo methods.
 To build the \emph{Sueca} card game, the chosen approach is similar to what Buro et. al. has done in the Skat card game.
 These two games are identical, excluding the nonexistent bidding phase on \emph{Sueca}.
@@ -19,14 +19,14 @@ Due to the affinity between the two games, it is predictable that the results of
 Furthermore, this \emph{Sueca} player will play against aged people.
 Since they are not world champions or are not even at a professional level, the power of the artificial player must be balanced.
 On one hand, the idea is to create a challenging environment for the elderly.
-On the other hand, an existing concern is not to devastate the self-esteem of them.
+On the other hand, an existing concern is not to devastate their self-esteem.
 The motivation of this work is to create a pleasing and, at the same time, stimulating activity for the elderly.
 
 Additionally, a possible development strategy to follow is \gls{iimc}.
 Furtak et. al. shown how this algorithm can improve the results of their Skat player \cite{Furtak}.
 Depending on the results of applying \gls{pimc} to our domain, it will be considered a further upgrade to the \emph{Sueca} player.
 
-To reinforce the sampling phase of \gls{pimc}, it will be used an opponent modelling similar to what has been done in Poker \cite{Ponsen2008}.
+To reinforce the sampling phase of \gls{pimc}, an opponent modelling similar to what has been done in Poker will be used \cite{Ponsen2008}.
 This model will include cards and actions predictions.
 Instead of using the random sampling method of the original \gls{pimc}, cards probabilities will influence the cards sampling in each iteration of the algorithm.
 After sampling each world, actions predictions will be used in the simulation of a game to influence the opponents' moves.
@@ -41,7 +41,7 @@ Along with the \emph{Sueca} player, this work aims to develop a robot that is so
 In order to achieve this goal, many concerns arise.
 Down below, the model presented in Figure~\ref{fig:model} tries to solve and organise all the components involved.
 
-\begin{figure}[h!]
+\begin{figure}[ht]
   \centering
     \includegraphics[width=1\textwidth]{./img/model}
   \caption{Structure of the social robot that plays \emph{Sueca}}
@@ -52,13 +52,13 @@ This model distinguishes physical components from virtual ones.
 Some entities are not detailed on the scope of this project and are presented as both physical and virtual components.
 The human players, Users, will play with physical cards on the top of a Touch Table.
 Every game action is detected and communicated to both the \gls{ai} module and the Perception Manager.
-The Perception Manager receives information from all the sensory components and also the table events of the game.
-The gls{ai} module includes all the reasoning about the game and decides the robot next move of the game.
-However, the robot actions also involve social behaviours and this is managed by the Social Player.
-The Social Player balances the gls{ai} decision, sensory components and table events that represent states of the game.
-Its aims to produce appropriate behaviours to each situations.
+The Perception Manager receives information from all the Sensory Components.
+The \gls{ai} module includes all the reasoning about the game and decides the robot next move of the game.
+However, the robot actions also involve social behaviours and this is managed by the Decision Maker.
+The Decision Maker balances the \gls{ai} decision, sensory components and table events that represent states of the game.
+It aims to produce appropriate behaviours to each situations.
 For instance, being the last player of a trick and taking the two highest cards of a suit by playing a trump card is an exciting move and should produce such an exciting reaction on the robot.
-Lastly, the Behaviour Planner builds a suitable plan to execute the chosen behaviour while considering the state of the embodied agent.
+Lastly, the Behaviour Planner builds a suitable plan to execute the chosen high-level behaviour while considering the state of the embodied agent.
 
 The architecture that will instantiate the model described above is partially decided.
 The virtual layer will be mainly covered by Thalamus framework that allows all the communication between the mentioned entities \cite{Ribeiro}.

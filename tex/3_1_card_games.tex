@@ -25,7 +25,7 @@ Some possible approaches include considering the belief states about other playe
 \subsubsection{Monte Carlo-based Methods}
 
 
-There are some successfully examples of card games solved by Monte Carlo Methods.
+There are some successful examples of card games solved by Monte Carlo Methods.
 \todo[color=yellow]{Mention difference between MCTS and PIMC}
 Using \gls{pimc}, Ginsberg developed \gls{gib}\footnote{http://www.gibware.com/} \cite{Ginsberg2001}, which was declared as the best computer bridge player in 2001.
 Another example is the Skat player\footnote{https://skatgame.net/} built by Buro in 2009.
@@ -52,7 +52,7 @@ Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gl
 
 
 
-\subsubsection{Game State Inference \& Opponent Modeling}
+\subsubsection{Game State Inference \& Opponent Modelling}
 
 
 While discussing imperfect information games, it is relevant to mention inference of information.
@@ -61,9 +61,9 @@ This problem is known as finding the $P$(world\textbar move) for a move played i
 
 
 Buro in 2009 \cite{Buro} presented his work on state evaluation and inference that has been included in his Skat player.
-His approach combine two techniques, one for evaluating the bidding and another for selecting hypothetical worlds during the game play.
+His approach combines two techniques, one for evaluating the bidding and another for selecting hypothetical worlds during the game play.
 The former technique uses a logistic regression to evaluate the winning probability of each hand.
-In order to do this evaluation, it has been used 22 million Skat games as data base.
+In order to do this evaluation, 22 million Skat games were used as data base.
 This winning probability determines the strength of a hand and therefore can be used on the bidding.
 The second technique is mainly based on two heuristics.
 Fastest-cut-first search heuristic evaluates each move according to its beta-cutoff and sorts all the moves.
