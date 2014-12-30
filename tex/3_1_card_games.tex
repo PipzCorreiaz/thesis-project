@@ -3,16 +3,30 @@
  
 There are many games that \gls{ai} has been solving over the years.
 However, the definition of "games" usually refers to zero-sum and perfect information games.
-This kind of games is commonly solved by creating a tree search representing all the possible states.
+This kind of games is commonly solved by creating a tree search representing all the possible states and searching for the optimal or a nearly optimal solution.
 The greatest achievements are generally based on finding good heuristics to refine the search and also good prunings to reduce the space of search.
-Deepblue can exemplify this idea.
+Deepblue can exemplify this idea \cite{Campbell2002}.
 It uses an iterative-deepening alpha-beta search and the key of its success is mostly the null move heuristic and the futility pruning.
-Another example is Chinook, also a perfect information game that was solved using alpha-beta search.
+Another example is Chinook, also a perfect information game that was solved using alpha-beta search \cite{Schaeffer1996}.
+
+Nevertheless, emph{Sueca} is considered an imperfect information game, as described in section \ref{sec:background}.
+This class of games can be solved with three different approaches \cite{Cowling2012}.
+The first one and the most popular is based on Monte Carlo Methods.
+Secondly, a possible approach is trying to compute a Nash equilibrium strategy.
+Lastly, there is the usage of belief distributions involving game state inferences and opponent models.
+The first two mentioned approaches are mutually exclusive.
+However, the last one can be used simultaneously as a complement. \todo{Find a better word! Complement sounds awful!}
+The next three subsections will describe in more detail how this approaches can be addressed in hidden information games.
+
+
+
+
+
 On the other hand, Bridge can illustrate how imperfect information games have been addressed in the past.
 Bridge Baron was the first computer bridge champion and its program used some planning techniques.
 Subsequently, GIB was the next computer bridge champion and the first using the Monte Carlo Methods on Bridge.
 
-\todo{A pragraph justifying the nonusage of other approaches}
+
 
 As described in section \ref{sec:background}, \emph{Sueca} is considered an imperfect information game.
 This uncertainty produces a high branching factor in the tree search.
