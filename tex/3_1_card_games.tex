@@ -9,44 +9,38 @@ Deepblue can exemplify this idea \cite{Campbell2002}.
 It uses an iterative-deepening alpha-beta search and the key of its success is mostly the null move heuristic and the futility pruning.
 Another example is Chinook, also a perfect information game that was solved using alpha-beta search \cite{Schaeffer1996}.
 
-Nevertheless, emph{Sueca} is considered an imperfect information game, as described in section \ref{sec:background}.
+Nevertheless, \emph{Sueca} is considered an imperfect information game, as described in section \ref{sec:background}.
 This class of games can be solved with three different approaches \cite{Cowling2012}.
 The first one and the most popular is based on Monte Carlo Methods.
 Secondly, a possible approach is trying to compute a Nash equilibrium strategy.
 Lastly, there is the usage of belief distributions involving game state inferences and opponent models.
 The first two mentioned approaches are mutually exclusive.
-However, the last one can be used simultaneously as a complement. \todo{Find a better word! Complement sounds awful!}
-The next three subsections will describe in more detail how this approaches can be addressed in hidden information games.
+However, the last one can be used simultaneously as a supplement.
+The next three subsections will describe in more detail how these approaches can be addressed in hidden information games.
 
 
 
 
 
-On the other hand, Bridge can illustrate how imperfect information games have been addressed in the past.
-Bridge Baron was the first computer bridge champion and its program used some planning techniques.
-Subsequently, GIB was the next computer bridge champion and the first using the Monte Carlo Methods on Bridge.
+\subsubsection{Monte Carlo Methods}
+
+The popularity and acceptance of Monte Carlo based Methods has increased since its success on Bridge.
+\gls{gib}\footnote{http://www.gibware.com/} was the first computer bridge champion using Monte Carlo Methods \cite{Ginsberg2001}.
+Subsequently, another two successful domains were Skat\footnote{https://skatgame.net/} and Computer Go \cite{Gelly2011}.
+Regarding that some of these domains remain a challenge for traditional \gls{ai} techniques, this approach seems to be very promising.
 
 
-
-As described in section \ref{sec:background}, \emph{Sueca} is considered an imperfect information game.
-This uncertainty produces a high branching factor in the tree search.
-Thus, problems of this nature are being solved by other methods.
-Finding the optimal solution along the state tree is fairly impractical.
-Some possible approaches include considering the belief states about other players or trying to generalize the reward of a move by sampling the game considerable times.
-
-
-
-\subsubsection{Monte Carlo-based Methods}
+Cowling et. al. have invetigated the application of \gls{mcts} to hidden information games \cite{Cowling2012}.
+Their reaserch supports a new descendent family of algorithms that will be further described in the current section.
+The authors presented three different types of imperfect information games.
+\begin{itemize}
+\item \emph{Information sets} 
+\item \emph{Partially obervable} 
+\item \emph{Simultaneous moves} 
+\end{itemize}
 
 
-There are some successful examples of card games solved by Monte Carlo Methods.
-\todo[color=yellow]{Mention difference between MCTS and PIMC}
-Using \gls{pimc}, Ginsberg developed \gls{gib}\footnote{http://www.gibware.com/} \cite{Ginsberg2001}, which was declared as the best computer bridge player in 2001.
-Another example is the Skat player\footnote{https://skatgame.net/} built by Buro in 2009.
-\todo[color=yellow]{Talk a bit more about these!}
 Despite of the fortunate outcomes, there still were difficulties in understanding the strong results of this algorithm.
-
-
 As a result, Long et. al. have analyzed carefully the expected \gls{pimc}' errors mentioned by critics \cite{Long2010}.
 These mistakes lead him to find three different properties of a game and test its influences on the success of \gls{pimc}.
 The first property is \emph{leaf correlation}, which demonstrates how likely it is to affect a player's payoff in the neighbourhood of a leaf.
@@ -63,6 +57,15 @@ Due to its properties configurations, Skat indicates a considerably good perform
 Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gls{pimc} also has a good performance when applied to \emph{Sueca}.
 
 \todo[color=yellow]{IIMC}
+
+
+
+
+
+\subsubsection{Computing Nash Equilibrium}
+
+
+
 
 
 
