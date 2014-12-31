@@ -30,14 +30,15 @@ Subsequently, another two successful domains were Skat\footnote{https://skatgame
 Regarding that some of these domains remain a challenge for traditional \gls{ai} techniques, this approach seems to be very promising.
 
 
-Cowling et. al. have invetigated the application of \gls{mcts} to hidden information games \cite{Cowling2012}.
-Their reaserch supports a new descendent family of algorithms that will be further described in the current section.
-The authors presented three different types of imperfect information games.
+Cowling et. al. have investigated the application of \gls{mcts} to hidden information games \cite{Cowling2012}.
+Firstly, they classify the elements of an imperfect information game as one of three distinct types:
 \begin{itemize}
-\item \emph{Information sets} 
-\item \emph{Partially obervable} 
-\item \emph{Simultaneous moves} 
+\item \emph{Information sets} agregate several states to represent unknown information. In a card game, for instance, an \emph{information set} of a player, whos cards are hidden, corresponds to all the possible combinations of his hand;
+\item \emph{Partially observable} \todo[inline]{find an axample};
+\item \emph{Simultaneous moves} occurs when all players make a move at the same time, for example the game Rock-Paper-Scissors.
 \end{itemize}
+Their reaserch supports a new descendent family of algorithms, \gls{ismcts}.
+\gls{ismcts} works directly on information sets, adversely to what is done in the determinization technique.
 
 
 Despite of the fortunate outcomes, there still were difficulties in understanding the strong results of this algorithm.
