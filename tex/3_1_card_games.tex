@@ -1,6 +1,6 @@
 \subsection{\gls{ai} in games}
  
- 
+%%% jogos tem sido um grande desafio
 There are many games that \gls{ai} has been solving over the years.
 However, the definition of "games" usually refers to zero-sum and perfect information games.
 This kind of games is commonly solved by creating a tree search representing all the possible states and searching for the optimal or a nearly optimal solution.
@@ -9,10 +9,11 @@ Deepblue can exemplify this idea \cite{Campbell2002}.
 It uses an iterative-deepening alpha-beta search and the key of its success is mostly the null move heuristic and the futility pruning.
 Another example is Chinook, also a perfect information game that was solved using alpha-beta search \cite{Schaeffer1996}.
 
+%%% perfect e imperfect nao se resolvem da mesma maneira
 Nevertheless, \emph{Sueca} is considered an imperfect information game, as described in section \ref{sec:background}.
 This class of games can be solved with three different approaches \cite{Cowling2012}.
 The first one and the most popular is based on Monte Carlo Methods.
-Secondly, a possible approach is trying to compute a Nash equilibrium strategy.
+Secondly, a possible approach is trying to compute a Nash equilibrium strategy or an approximation.
 Lastly, there is the usage of belief distributions involving game state inferences and opponent models.
 The first two mentioned approaches are mutually exclusive.
 However, the last one can be used simultaneously as a supplement.
@@ -24,23 +25,28 @@ The next three subsections will describe in more detail how these approaches can
 
 \subsubsection{Monte Carlo Methods}
 
+%%% monte carlo e cada vez mais popular
 The popularity and acceptance of Monte Carlo based Methods has increased since its success on Bridge.
 \gls{gib}\footnote{http://www.gibware.com/} was the first computer bridge champion using Monte Carlo Methods \cite{Ginsberg2001}.
 Subsequently, another two successful domains were Skat\footnote{https://skatgame.net/} and Computer Go \cite{Gelly2011}.
-Regarding that some of these domains remain a challenge for traditional \gls{ai} techniques, this approach seems to be very promising.
+Regarding that some of these domains remain a challenge for traditional \gls{ai} techniques, this method seems to be very promising.
 
 
-Cowling et. al. have investigated the application of \gls{mcts} to hidden information games \cite{Cowling2012}.
-Firstly, they classify the elements of an imperfect information game as one of three distinct types:
-\begin{itemize}
-\item \emph{Information sets} agregate several states to represent unknown information. In a card game, for instance, an \emph{information set} of a player, whos cards are hidden, corresponds to all the possible combinations of his hand;
-\item \emph{Partially observable} \todo[inline]{find an axample};
-\item \emph{Simultaneous moves} occurs when all players make a move at the same time, for example the game Rock-Paper-Scissors.
-\end{itemize}
-Their reaserch supports a new descendent family of algorithms, \gls{ismcts}.
-\gls{ismcts} works directly on information sets, adversely to what is done in the determinization technique.
+%%% diferenca entre MCTS e PIMC
+\gls{gib} was a successful implementation of \gls{pimc} that has previously been suggested by Levy.\todo{Nao encontrei o artigo da citacao 5 do Furtak. Ignoro? Ou posso copiar cegamente das suas citacoes?}
+In order to solve an hidden information game, the first challenge is to deal with the information sets.
+The most used approach is determinization, which samples choice nodes instead of considering all of them in an information set.
+Applying this approach to \gls{mcts} is known as \gls{pimc}.
+For instance in a card game scenario, each iteration of the algorithm samples the cards distributions and the simulation process of the game behaves as a perfect information game.
+In other words, during the simulation each player makes decisions as if his opponents' cards are visible.
 
 
+%%% Basin estudou os prblomeas do PIMC
+In 1998, Frank and Basin procuded an analysis on \gls{pimc}'s limitations.
+
+
+
+%%% O Long estudou com que propriedades o PICM funciona
 Despite of the fortunate outcomes, there still were difficulties in understanding the strong results of this algorithm.
 As a result, Long et. al. have analyzed carefully the expected \gls{pimc}' errors mentioned by critics \cite{Long2010}.
 These mistakes lead him to find three different properties of a game and test its influences on the success of \gls{pimc}.
@@ -57,9 +63,12 @@ Additionally, Buro demonstrates real game examples of theses properties, for Ska
 Due to its properties configurations, Skat indicates a considerably good performance of \gls{pimc}.
 Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gls{pimc} also has a good performance when applied to \emph{Sueca}.
 
-\todo[color=yellow]{IIMC}
+% aqui ou depois do iimcts falar do Recursive
 
-
+%%%  cowling propoe IIMCTS
+Cowling et. al. have investigated the application of \gls{mcts} to hidden information games \cite{Cowling2012}.
+Their reaserch supports a new descendent family of algorithms, \gls{ismcts}.
+\gls{ismcts} works directly on information sets, adversely to what is done in the determinization technique.
 
 
 

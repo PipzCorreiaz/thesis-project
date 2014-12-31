@@ -1,10 +1,14 @@
 \subsection{Game theory concepts}
 
 Game theory studies decision making problems involving multiple decision makers.
-Each one of the decision makers tries to maximise the payoff/reward of his possible actions.
-A problem of this nature is usually called game and defines a set of constraints to the players and their actions.
+A problem of this nature is usually called game and defines a set of constraints to the players' actions.
 Game theory also studies the strategies these players might take and also the properties of each game.
 Nowadays this subject is applied to many different areas, such as economics, political science, biology or computer science.
+
+Each one of the decision makers tries to maximise the payoff/reward of his possible actions.
+In order to do that, a possible approach is trying to consider the opponent's action.
+Consequently, the Nash-equilibrium of a game represents this idea with a stable strategy for both opponents
+It \todo{Define nash and maybe pareto}
 
 \begin{figure}
 \centering
@@ -26,9 +30,14 @@ A normal form game can be defined as the tuple $(N,(A_k)_{k=1}^{N},(u_k)_{k=1}^{
 Considering the players' payoffs, there is another relevant concept, the zero-sum game.
 In a zero-sum game, the sum of all players' payoffs is zero.
 For instance, in a zero-sum 2 players game, $u_1 = -u_2$.
-Although a normal form game assumes that players' actions are made simultaneously, in an extensive form game the players' actions are sequential.
+Although the normal form games assume that players' actions are made simultaneously, in the extensive form games the players' actions are sequential.
 This evidence leads to another branching in the hierarchy of games.
-On one hand, a game can be considered a perfect information.
-This means each player knows exactly the real state of his opponents (e.g. Chess).
+On one hand, an extensive game can be considered as perfect information.
+This means each player knows exactly the real state of his opponents, (e.g. Chess).
 On the other hand, in an imperfect information game, the state of opponents is hidden (e.g. card games).
+
+Regarding the focus of this work on a card game, another relevant point on the top of hidden information games is the the definition of information set.
+An information set agregates several nodes representing unknown information such as choice nodes. In a card game, for instance, the information set of a player, whos cards are hidden, corresponds to all the possible combinations of his hand.
+
+
 
