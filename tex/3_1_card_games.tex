@@ -35,14 +35,18 @@ Regarding that some of these domains remain a challenge for traditional \gls{ai}
 %%% diferenca entre MCTS e PIMC
 \gls{gib} was a successful implementation of \gls{pimc} that has previously been suggested by Levy.\todo{Nao encontrei o artigo da citacao 5 do Furtak. Ignoro? Ou posso copiar cegamente das suas citacoes?}
 In order to solve an hidden information game, the first challenge is to deal with the information sets.
-The most used approach is determinization, which samples choice nodes instead of considering all of them in an information set.
+The most used approach is determinization, which samples choice nodes instead of considering all of them in an unique set.
 Applying this approach to \gls{mcts} is known as \gls{pimc}.
-For instance in a card game scenario, each iteration of the algorithm samples the cards distributions and the simulation process of the game behaves as a perfect information game.
+For instance in a card game scenario, each iteration of the algorithm samples the cards distributions for all players and the simulation process of the game behaves as a perfect information game.
 In other words, during the simulation each player makes decisions as if his opponents' cards are visible.
 
 
 %%% Basin estudou os prblomeas do PIMC
-In 1998, Frank and Basin procuded an analysis on \gls{pimc}'s limitations.
+In 1998, Frank and Basin produced an analysis on \gls{pimc}'s limitations \cite{Frank1998}.
+They identified two distinct problems: \emph{strategy fusion} and \emph{non-locality}.
+Since \gls{pimc} has a repeated minimaxing architecture, it evaluates the possible distributions with the best strategy.
+As a result, applying this knowledge when information is missing might produce suboptimal decisions and it is called the \emph{strategy fusion}.
+
 
 
 
