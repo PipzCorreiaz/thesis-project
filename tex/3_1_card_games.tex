@@ -17,8 +17,9 @@ Secondly, a possible approach is trying to compute a Nash equilibrium strategy o
 Lastly, there is the usage of belief distributions involving game state inferences and opponent models.
 The first two mentioned approaches are mutually exclusive.
 However, the last one can be used simultaneously as a supplement.
-The next three subsections will describe in more detail how these approaches can be addressed in hidden information games.
-
+The next two subsections will describe in more detail how Monte Carlo Methods and Belief Distributions can be addressed in hidden information games.
+The second pointed approach will not be adressed due to the imposed limitations of our domain.
+For instance, the maximum known number of states for computing a Nash equilibrium is 10^{12}, which is much lower than the number of possible states in a \emph{Sueca} game.
 
 
 
@@ -94,11 +95,6 @@ The authors revealed the great potential of this approach when applied to trick-
 This algorithm appears to be the trump card regarding all the mentioned approaches.
 When trying to solve \emph{Sueca}, it should not be the first used technique.
 Since \emph{Sueca} has no previous research, its response to powerless approaches must be initially evaluated.
-
-
-
-\subsubsection{Computing Nash Equilibrium}
-
 
 
 
