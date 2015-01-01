@@ -76,7 +76,12 @@ Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gl
 %%%  cowling propose ISMCTS
 Cowling et. al. have also investigated the application of \gls{mcts} to hidden information games \cite{Cowling2012}.
 Their research supports a new descendant family of algorithms, \gls{ismcts}.
-\gls{ismcts} works directly with information sets, adversely to what is done in the determinization technique that works with game states.
+\gls{ismcts} works with information sets, instead game states.
+It also uses determinization to sample the game, however produces a single tree.
+The main advantages are the computacional space effieciency and fact os suffering less \emph{strategy fusion} than \gls{pimc}.
+The authors presented some experiments in three different games, including a card game.
+Their results on the card game Dou Di Zhu were very similiar to \gls{uct}.
+This evidence has discouraged the usage of this technique on the domain of \emph{Sueca}.
 
 
 %%% IIMC
@@ -85,7 +90,6 @@ It is considered an improvement of \gls{pimc}.
 During the simulation phase, each player's move is chosen inside a player's module.
 The game behaves as an imperfect information due to this encapsulation.
 Additionally, the players' modules allow the differentiation of players using different strategies.
-%comparar com ISMCTS
 The authors revealed the great potential of this approach when applied to trick-based card games, since it has been tested in the Skat scenario.
 This algorithm appears to be the trump card regarding all the mentioned approaches.
 When trying to solve \emph{Sueca}, it should not be the first used technique.
