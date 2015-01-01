@@ -11,7 +11,7 @@ Another example is Chinook, also a perfect information game that was solved usin
 
 %%% perfect e imperfect nao se resolvem da mesma maneira
 Nevertheless, \emph{Sueca} is considered an imperfect information game, as described in section \ref{sec:background}.
-This class of games can be solved with three different approaches \cite{Cowling2012}.
+This class of games is usually solved with three different approaches \cite{Cowling2012}.
 The first one and the most popular is based on Monte Carlo Methods.
 Secondly, a possible approach is trying to compute a Nash equilibrium strategy or an approximation.
 Lastly, there is the usage of belief distributions involving game state inferences and opponent models.
@@ -33,7 +33,7 @@ Regarding that some of these domains remain a challenge for traditional \gls{ai}
 
 
 %%% diferenca entre MCTS e PIMC
-\gls{gib} was a successful implementation of \gls{pimc} that has previously been suggested by Levy.\todo{Nao encontrei o artigo da citacao 5 do Furtak. Ignoro? Ou posso copiar cegamente das suas citacoes?}
+\gls{gib} was a successful implementation of \gls{pimc} that has previously been suggested by Levy. \todo{Nao encontrei o artigo da citacao 5 do Furtak. Ignoro? Ou posso copiar cegamente das suas citacoes?}
 In order to solve an hidden information game, the first challenge is to deal with the information sets.
 The most used approach is determinization, which samples choice nodes instead of considering all of them in an unique set.
 Applying this approach to \gls{mcts} is known as \gls{pimc}.
@@ -48,16 +48,15 @@ Since \gls{pimc} has a repeated minimaxing architecture, it evaluates the possib
 As a result, applying this knowledge when information is missing might produce suboptimal decisions and it is called the \emph{strategy fusion}.
 For instance, when having a move with a garanteed reward and another move with a possible reward of the same value although depending on the current world, \gls{pimc} equally considers both moves.
 The second problem, \emph{non-locality}, results from the propagation of values.
-The value of game tree node only considers his children.
-However, in an imperfect information game some guesses might be done considering values of the non-local subtree.
+The value of a game tree node only considers his children' values.
+However, in an imperfect information game, some guesses might be done considering values of the non-local subtree.
 For instance, considering 2 different worlds, the player 1 can garantee a winning trick in the world 1 by making a certain move.
 If in that state he makes another move, player 2 might assume they are in world 2.
 \gls{pimc} cannot make such an inference.
 
 
-
 %%% O Long estudou com que propriedades o PICM funciona
-Despite of the fortunate outcomes, there still were difficulties in understanding the strong results of this algorithm.
+Despite of the fortunate outcomes of \gls{pimc}, there still were difficulties in understanding the strong results of this algorithm, specially considering the previously mentioned problems.
 As a result, Long et. al. have analyzed carefully the expected \gls{pimc}' errors mentioned by critics \cite{Long2010}.
 These mistakes lead him to find three different properties of a game and test its influences on the success of \gls{pimc}.
 The first property is \emph{leaf correlation}, which demonstrates how likely it is to affect a player's payoff in the neighbourhood of a leaf.
@@ -66,19 +65,31 @@ Secondly, \emph{bias} indicates the chance of a player being preferred over the 
 Finally, the last characteristic of a game that has been pointed is \emph{disambiguation factor}, that denotes how rapidly the hidden information is revealed.
 These properties have been tested in a set of experiments in both \gls{pimc} and a random player against an optimal Nash-equilibrium player.
 The performance of \gls{pimc} increases as the correlation value is higher.
-It has also been shown that bias does not considerably affect the success of \gls{pimc}.
+It has also been shown that bias does not considerably affect its success.
 Finally, disambiguation has the greatest impact on the results of the algorithm.
 When this last value is higher, it means the game becomes more quickly into a perfect information game.
 Additionally, Buro demonstrates real game examples of theses properties, for Skat and Kuhn poker.
 Due to its properties configurations, Skat indicates a considerably good performance of \gls{pimc}.
 Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gls{pimc} also has a good performance when applied to \emph{Sueca}.
 
-% aqui ou depois do iimcts falar do Recursive
 
-%%%  cowling propoe IIMCTS
-Cowling et. al. have investigated the application of \gls{mcts} to hidden information games \cite{Cowling2012}.
+%%%  cowling propose ISMCTS
+Cowling et. al. have also investigated the application of \gls{mcts} to hidden information games \cite{Cowling2012}.
 Their reaserch supports a new descendent family of algorithms, \gls{ismcts}.
-\gls{ismcts} works directly on information sets, adversely to what is done in the determinization technique.
+\gls{ismcts} works directly with information sets, adversely to what is done in the determinization technique that works with game states.
+
+
+%%% IIMC
+Recently, Furtak and Buro \cite{Furtak} presented a new search algorithm called \gls{iimc}.
+It is considered an improvement of \gls{pimc}.
+During the simulation phase, each player's move is chosen inside a player's module.
+The game behaves as an imperfect information due to this encapsulation.
+Additionally, the players' modules allow the differentiation of players using different strategies.
+%comparar com ISMCTS
+The authors revealed the great potential of this approach when applied to trick-based card games, since it has been tested in the Skat scenerio.
+This algorithm appears to be the trump card regarding all the mentioned approaches.
+When trying to solve \emph{Sueca}, it should not be the first used technique.
+Since \emph{Sueca} has no previous research, its response to powerless approaches must be initially evaluated.
 
 
 
