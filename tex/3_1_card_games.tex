@@ -28,18 +28,18 @@ For instance, the maximum known number of states for computing a Nash equilibriu
 
 %%% monte carlo e cada vez mais popular
 The popularity and acceptance of Monte Carlo based Methods has increased since its success on Bridge.
-\gls{gib}\footnote{http://www.gibware.com/} was the first computer bridge champion using Monte Carlo Methods \cite{Ginsberg2001}.
+\gls{gib}\footnote{http://www.gibware.com/} was the first computer bridge champion using Monte Carlo Methods.
 Subsequently, another two successful domains were Skat\footnote{https://skatgame.net/} and Computer Go \cite{Gelly2011}.
 Regarding that some of these domains remain a challenge for traditional \gls{ai} techniques, this method seems to be very promising.
 
 
 %%% diferenca entre MCTS e PIMC
-\gls{gib} was a successful implementation of \gls{pimc} that has previously been suggested by Levy. \todo{Nao encontrei o artigo da citacao 5 do Furtak. Ignoro? Ou posso copiar cegamente das suas citacoes?}
 In order to solve an hidden information game, the first challenge is to deal with the information sets.
 The most used approach is determinization, which samples choice nodes instead of considering all of them in an unique set.
 Applying this approach to \gls{mcts} is known as \gls{pimc}.
 For instance in a card game scenario, each iteration of the algorithm samples the cards distributions for all players and the simulation process of the game behaves as a perfect information game.
 In other words, during the simulation each player makes decisions as if his opponents' cards are visible.
+The first successful implementation of this technique was \gls{gib} \cite{Ginsberg2001}.
 
 
 %%% Basin estudou os prblomeas do PIMC
