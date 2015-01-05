@@ -14,8 +14,8 @@ Nevertheless, \emph{Sueca} is considered an imperfect information game, as descr
 This class of games is usually solved by three different approaches \cite{Cowling2012}.
 The first one, and the most popular, is based on Monte Carlo Methods.
 Then, another possible approach is trying to compute a Nash equilibrium strategy or an approximation.
-Lastly, there is the usage of belief distributions involving game state inferences and opponent models.
-The first two mentioned approaches are mutually exclusive, while the last one can be used simultaneously as a supplement.
+Lastly, belief distributions involving game state inferences and opponent models can also be used.
+The first two mentioned approaches are mutually exclusive, while the last one can be used as a supplement.
 The following two subsections will detail how Monte Carlo Methods and Belief Distributions can be addressed in hidden information games.
 The second pointed approach will not be addressed due to the imposed limitations of our domain.
 For instance, the maximum known number of states for computing a Nash equilibrium is $10^{12}$ \cite{Zinkevich}, which is much lower than the number of possible states in a \emph{Sueca} game.
@@ -49,7 +49,7 @@ This is called the \emph{strategy fusion}.
 For instance, when having a move with a guaranteed reward and another move with a possible reward of the same value although depending on the current world, \gls{pimc} equally considers both moves.
 The second problem, \emph{non-locality}, results from the propagation of values.
 The value of a game tree node only considers his children' values.
-However, in an imperfect information game, some guesses might be done considering values of the non-local subtree.
+However, in an imperfect information game, some guesses might be done using values of the non-local subtree.
 For instance, considering 2 different worlds, the player 1 can guarantee a winning trick in the world 1 by making a certain move.
 If in that state he makes another move, player 2 might assume they are in world 2.
 \gls{pimc} cannot make such an inference.
@@ -138,7 +138,7 @@ Their opponent model starts with a prior distribution and changes over time with
 The prior distribution allows it to make reasonable predictions while having insufficient information.
 In addition, the relational probability tree algorithm TILDE builds a decision tree with the stored samples of a player.
 This decision tree represents the differentiating function that will adapt the initial prior distribution.
-Besides modelling the opponents, the authors present how to integrate this function with \gls{mcts}.
+Besides modelling the opponents, the authors explain how to integrate this function with \gls{mcts}.
 Instead of sampling the cards randomly, \gls{mcts} uses card predictions.
 Therefore, the algorithm does not need a numerous amount of iterations to reach a uniform card distribution.
 Furthermore, the probabilities of action predictions are used in the selection phase of the \gls{mcts}, according to the state of the game and the sampled cards.
