@@ -1,7 +1,7 @@
 \subsection{Monte Carlo Tree Search}
 
 
-\gls{mcts} is a family of algorithms with the goal of finding optimal decisions \cite{Browne2012}.
+\gls{mcts} is a family of algorithms whose goal is finding optimal decisions \cite{Browne2012}.
 This method incrementally builds a search tree according to the results of previous iterations.
 The search tree is expanded by randomly sampling the nodes.
 Usually, it is divided into four steps, as described below.
@@ -19,7 +19,7 @@ This algorithm can also be easily paralleled, since each simulation process can 
 
 
 According to Browne et al., finding a suitable variation of \gls{mcts} is the greatest challenge of applying the algorithm to a specific environment.
-The most popular algorithm of \gls{mcts} family is \gls{uct} algorithm.
+The most popular algorithm of \gls{mcts} family is \gls{uct}.
 The \gls{uct} variation differs from the original in the selection phase.
 It uses a maximisation function to evaluate the available nodes, according to the following equation:
 
@@ -28,7 +28,7 @@ It uses a maximisation function to evaluate the available nodes, according to th
 \end{equation}
 
 It models the reward of each child node as an independent multiarmed bandit problem.
-This means that besides considering the already obtained average reward of a child node, it also considers the maximum expected gain of that child node.
+This means that, besides considering the already obtained average reward of a child node, it also considers the maximum expected gain of that same child node.
 This function establishes an equilibrium between exploitation and exploration.
 Exploitation is evaluated in the first term of the equation by considering the average reward of a child node.
 The exploration is manipulated in the second term by balancing the amount of times the parent node and the child node $j$ have been visited (respectively, $n$ and $n_j$).

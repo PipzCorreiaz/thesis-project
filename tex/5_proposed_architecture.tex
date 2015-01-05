@@ -13,7 +13,7 @@ Research has shown that the state of the art of imperfect information games is b
 To build the \emph{Sueca} card game, the chosen approach is similar to what Buro et. al. has done in the Skat card game.
 These two games are identical, excluding the nonexistent bidding phase on \emph{Sueca}.
 Furtak et. al. have explored how \gls{pimc}'s results vary according to some of the game's properties and proved its benefits on Skat \cite{Long2010}.
-Due to the affinity between the two games, it is predictable that the results of applying \gls{pimc} to \emph{Sueca} are also satisfying.
+Due to the affinity between the two games, it is predictable that the results of applying \gls{pimc} to \emph{Sueca} are also satisfactory.
 
 Furthermore, this \emph{Sueca} player will play against aged people.
 Since they are not world champions or are not even at a professional level, the power of the artificial player must be balanced.
@@ -49,25 +49,24 @@ Down below, the model presented in Figure~\ref{fig:model} tries to solve and org
 
 This model distinguishes physical components from virtual ones.
 Some entities are not detailed on the scope of this project and are presented as both physical and virtual components.
-The human players, Users, will play with physical cards on the top of a Touch Table.
+The human players, Users, will play with physical cards on top of a Touch Table.
 Every game action is detected and communicated to both the \gls{ai} module and the Perception Manager.
 The Perception Manager receives information from all the Sensory Components.
-The \gls{ai} module includes all the reasoning about the game and decides the robot next move of the game.
-However, the robot actions also involve social behaviours and this is managed by the Decision Maker.
+The \gls{ai} module includes all the reasoning about the game and decides the robot's next move.
+However, the robot's actions also involve social behaviours and these are managed by the Decision Maker.
 The Decision Maker balances the \gls{ai} decision, sensory components and table events that represent states of the game.
-It aims to produce appropriate behaviours to each situations.
-For instance, being the last player of a trick and taking the two highest cards of a suit by playing a trump card is an exciting move and should produce such an exciting reaction on the robot.
+It aims to produce appropriate behaviours depending on the situation.
+For instance, being the last player of a trick and taking the two highest cards of a suit by playing a trump card is an exciting move and should produce an equally exciting reaction on the robot.
 Lastly, the Behaviour Planner builds a suitable plan to execute the chosen high-level behaviour while considering the state of the embodied agent.
 
 The architecture that will instantiate the model described above is partially decided.
-The virtual layer will be mainly covered by Thalamus framework that allows all the communication between the mentioned entities \cite{Ribeiro}.
+The virtual layer will be mainly covered by Thalamus framework, which enables the communication between the mentioned entities \cite{Ribeiro}.
 The chosen Behaviour Planner is Skene \cite{Ribeiroa}.
 The \gls{ai} module will be processed offline with the algorithms described in Section~\ref{sec:sueca_solution}.
-The embodied agent will initially be \gls{emys} due to its expressiveness.
-Nonetheless other robots might be further used considering the users' preferences.
+The embodied agent will initially be \gls{emys} due to its expressiveness, although other robots will be considered, depending on the users' preferences.
 Finally, the undecided components are the sensory inputs.
 Pereira et. al. have shown the importance of collecting data from user studies.
-Theses components will be settled further, after some field research with \emph{Sueca} players.
+These components will be settled further, after some field research with \emph{Sueca} players.
 
 
 
