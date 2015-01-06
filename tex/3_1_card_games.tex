@@ -5,12 +5,11 @@
 However, the definition of "games" usually refers to zero-sum and perfect information games.
 These kind of games are commonly solved by creating a tree search representing all possible states and searching for the optimal, or a nearly optimal, solution.
 The greatest achievements related to perfect information games are generally based on finding good heuristics to refine the search and also good prunings to reduce the search space.
-Deepblue can exemplify this idea \cite{Campbell2002}.
-It uses an iterative-deepening alpha-beta search and the key of its success is mostly the null move heuristic and the futility pruning.
+Deepblue can exemplify this idea \cite{Campbell2002}, it uses an iterative-deepening alpha-beta search and the key of its success is mostly the null move heuristic and the futility pruning.
 Another example is Chinook, also a perfect information game that was solved using alpha-beta search \cite{Schaeffer1996}.
 
 %%% perfect e imperfect nao se resolvem da mesma maneira
-Nevertheless, \emph{Sueca} is considered an imperfect information game, as described in section \ref{sec:background}.
+Nevertheless, \emph{Sueca} is considered an imperfect information game, as described in Section~\ref{sec:background}.
 This class of games is usually solved by three different approaches \cite{Cowling2012}.
 The first one, and the most popular, is based on Monte Carlo Methods.
 Then, another possible approach is trying to compute a Nash equilibrium strategy or an approximation.
@@ -89,30 +88,41 @@ The game behaves as an imperfect information due to this encapsulation.
 Additionally, the players' modules allow the differentiation of players using different strategies.
 The authors revealed the great potential of this approach when applied to trick-based card games, considering it has been successfully tested in the Skat scenario.
 
+\bigskip
+
 Due to the similarity between \emph{Sueca} and Skat, it is predictable that Monte Carlo methods might produce good results.
 However, assuming that different variations of \gls{pimc} produce the exact same behaviour, in skat and \emph{Sueca}, might be a mistake, considering their certain domain characteristics.
 %However, assuming the exact same behaviour of Skat, when applying different variations of \gls{pimc} might be a mistake, considering certain domain characteristics.
 As a result, using the \gls{iimc} approach before trying \gls{pimc} may not be a reasonable strategy.
 
 
+\begin{table}[h]
+\begin{tabular}{|c|m{0.42\textwidth}|m{0.4\textwidth}|}
+\hline
+\textbf{Algorithm} & \multicolumn{1}{c|}{\textbf{Advantages}}  & \multicolumn{1}{c|}{\textbf{Disadvantages}}                                                                   \\ \hline
+PIMC               &                                           & \begin{tabular}[c]{@{}l@{}}Computational space\\ Strategy fusion\\ Non-locality\end{tabular}                  \\ \hline
+ISMCTS             & Computational space                       & Strategy fusion (less than PICM)                                                                              \\ \hline
+IIMC               & Allow a different player model per player & \begin{tabular}[c]{@{}l@{}}Computational space\\ Strategy fusion (less than PICM)\\ Non-locality\end{tabular} \\ \hline
+\end{tabular}
+\end{table}
+
+
 
 \subsubsection{Game State Inference \& Opponent Modelling}
 
 
-While discussing imperfect information games, it is relevant to mention information inference.
+While discussing imperfect information games, information inference is another relevant subject to consider.
 Predicting some of the opponents' cards or other clues would be beneficial to select better actions at each state of the game.
 This problem is known as finding the $P$(world\textbar move) for a move played in an hypothetical world.
 
 
 Buro in 2009 \cite{Buro} presented his work on state evaluation and inference that has been included in his Skat player.
 His approach combines two techniques, one for evaluating the bidding and another for selecting hypothetical worlds during the game play.
-The former technique uses a logistic regression to evaluate the winning probability of each hand.
-In order to do this evaluation, 22 million Skat games were used as data base.
+The former technique uses a logistic regression to evaluate the winning probability of each hand and it has 22 million Skat games as data base.
 This winning probability determines the strength of a hand and therefore can be used on the bidding.
 The second technique is mainly based on two heuristics.
-Fastest-cut-first search heuristic evaluates each move according to its beta-cutoff and sorts all the moves.
-Additionally, another heuristic is used to reduce the tree exploration.
-It groups cards by their strength value and considers, for example, 7\ding{168} and 8\ding{168} the same move, when holding both cards in a player's hand.
+Fastest-cut-first search heuristic that evaluates each move according to its beta-cutoff and sorts all the moves.
+Additionally, in order to reduce the tree exploration, another heuristic groups cards by their strength value and considers, for example, 7\ding{168} and 8\ding{168} the same move, when holding both cards in a player's hand.
 The author compares his work to other similar ones and concludes the strength of his techniques lies at two central points.
 First, determining the $P$(world\textbar move) on offline data, instead of doing it in runtime.
 Lastly, his formulation is generalised in a way that it is possible to perform it on high-level features.
