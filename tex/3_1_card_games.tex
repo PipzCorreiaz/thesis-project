@@ -1,23 +1,20 @@
 \subsection{\gls{ai} in games}
  
 %%% jogos tem sido um grande desafio
-\gls{ai} has been solving many games over the years.
-However, the definition of "games" usually refers to zero-sum and perfect information games.
+\gls{ai} has been solving many games over the years, however, the definition of "games" usually refers to zero-sum and perfect information games.
 These kind of games are commonly solved by creating a tree search representing all possible states and searching for the optimal, or a nearly optimal, solution.
 The greatest achievements related to perfect information games are generally based on finding good heuristics to refine the search and also good prunings to reduce the search space.
 Deepblue can exemplify this idea \cite{Campbell2002}, it uses an iterative-deepening alpha-beta search and the key of its success is mostly the null move heuristic and the futility pruning.
 Another example is Chinook, also a perfect information game that was solved using alpha-beta search \cite{Schaeffer1996}.
 
 %%% perfect e imperfect nao se resolvem da mesma maneira
-Nevertheless, \emph{Sueca} is considered an imperfect information game, as described in Section~\ref{sec:background}.
-This class of games is usually solved by three different approaches \cite{Cowling2012}.
+Nevertheless, \emph{Sueca} is considered an imperfect information game, as described in Section~\ref{sec:background}, and this class of games is usually solved by three different approaches \cite{Cowling2012}.
 The first one, and the most popular, is based on Monte Carlo Methods.
 Then, another possible approach is trying to compute a Nash equilibrium strategy or an approximation.
 Lastly, belief distributions involving game state inferences and opponent models can also be used.
 The first two mentioned approaches are mutually exclusive, while the last one can be used as a supplement.
 The following two subsections will detail how Monte Carlo Methods and Belief Distributions can be addressed in hidden information games.
-The second pointed approach will not be addressed due to the imposed limitations of our domain.
-For instance, the maximum known number of states for computing a Nash equilibrium is $10^{12}$ \cite{Zinkevich}, which is much lower than the number of possible states in a \emph{Sueca} game.
+The second pointed approach will not be addressed due to the imposed limitations of our domain, considering, for instance, that the maximum known number of states for computing a Nash equilibrium is $10^{12}$ \cite{Zinkevich}, which is much lower than the number of possible states in a \emph{Sueca} game.
 
 
 
@@ -26,14 +23,13 @@ For instance, the maximum known number of states for computing a Nash equilibriu
 
 %%% monte carlo e cada vez mais popular
 The popularity and acceptance of Monte Carlo based Methods have increased since its success on Bridge.
-\gls{gib}\footnote{http://www.gibware.com/} was the first computer bridge champion using Monte Carlo Methods.
-Subsequently, another two successful domains were Skat\footnote{https://skatgame.net/} and Computer Go \cite{Gelly2011}.
+\gls{gib}\footnote{http://www.gibware.com/} was the first computer bridge champion using Monte Carlo Methods, and subsequently, another two successful domains were Skat\footnote{https://skatgame.net/} and Computer Go \cite{Gelly2011}.
 Regarding that some of these domains remain a challenge for traditional \gls{ai} techniques, this method seems to be very promising.
 
 
 %%% diferenca entre MCTS e PIMC
 In order to solve a hidden information game, the first challenge is to deal with information sets.
-The most used approach is determinization, which samples choice nodes instead of considering all of them in an unique set.
+The most used approach to solve it is determinization, which samples choice nodes instead of considering all of them in an unique set.
 Applying this approach to \gls{mcts} is known as \gls{pimc}.
 For instance, in a card game scenario, each iteration of \gls{pimc} samples the cards distributions for all players and the simulation process of the game behaves as a perfect information game.
 In other words, during the simulation each player makes decisions as if his opponents' cards are visible.
@@ -49,23 +45,20 @@ For instance, when having a move with a guaranteed reward and another move with 
 The second problem, \emph{non-locality}, results from the propagation of values.
 The value of a game tree node only considers his children' values.
 However, in an imperfect information game, some guesses might be done using values of the non-local subtree.
-For instance, considering 2 different worlds, the player 1 can guarantee a winning trick in the world 1 by making a certain move.
-If in that state he makes another move, player 2 might assume they are in world 2.
+For instance, considering 2 different worlds, the player 1 can guarantee a winning trick in the world 1 by making a certain move, and if in that state, he makes another move instead, player 2 might assume they are in world 2.
 \gls{pimc} cannot make such an inference.
 
 
 %%% O Long estudou com que propriedades o PICM funciona
 Despite the fortunate outcomes of \gls{pimc}, there were still difficulties in understanding the strong results of this algorithm.
-As a result, Long et. al. have analysed the previously mentioned problems of \gls{pimc} search.
-Their analysis show three different properties of a game and test its influences on the success of \gls{pimc} \cite{Long2010}.
+As a result, Long et. al. have analysed the previously mentioned problems of \gls{pimc} search, and they have shown how three different properties of a game can influence the success of \gls{pimc} \cite{Long2010}.
 The first property is \emph{leaf correlation}, which demonstrates how likely it is to affect a player's payoff in the neighbourhood of a leaf.
-The probability of all siblings having the same payoff values is higher as the correlation increases.
+When the probability of all siblings having the same payoff values is higher, the correlation value increases.
 Secondly, \emph{bias} indicates the chance of a player being preferred over the other.
 Finally, the last game characteristic that has been pointed is \emph{disambiguation factor}, that denotes how rapidly the hidden information is revealed.
 These properties have been tested in a set of experiments in both \gls{pimc} and a random player against an optimal Nash-equilibrium player.
-The performance of \gls{pimc} increases as the correlation value is higher.
-It has also been shown that bias does not considerably affect its success.
-Finally, disambiguation has the greatest impact on the results of the algorithm, when this last value is higher, it means the game turns more quickly into a perfect information game.
+Results shown the performance of \gls{pimc} increases as the correlation value is higher, bias does not considerably affect its success, and, finally, disambiguation has the greatest impact on the results of the algorithm.
+When this last value is higher, it means the game turns more quickly into a perfect information game.
 Additionally, the authors demonstrate these properties on real game examples, such as Skat and Kuhn poker.
 Skat indicates a considerably good performance of \gls{pimc}, due to its values of \emph{leaf correlation}, \emph{bias}, and \emph{disambiguation factor}.
 Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gls{pimc} also has a good performance when applied to \emph{Sueca}.
@@ -74,18 +67,16 @@ Since Skat presents strong similarities to \emph{Sueca}, it is expected that \gl
 %%%  cowling propose ISMCTS
 Cowling et. al. have also investigated the application of \gls{mcts} to hidden information games \cite{Cowling2012}.
 Their research supports a new descendant family of algorithms, \gls{ismcts}.
-\gls{ismcts} works with information sets, instead of game states and uses determinization to sample the game, however produces a single tree.
-The main advantages are the computational space efficiency and the fact of suffering less from \emph{strategy fusion} than \gls{pimc}.
+\gls{ismcts} works with information sets, instead of game states and uses determinization to sample the game, however producing a single tree.
+The main advantages are the computational budget efficiency and the fact of suffering less from \emph{strategy fusion} than \gls{pimc}.
 The authors also presented some experiments in three different games, including a card game.
 Their results on the card game Dou Di Zhu were very similar to \gls{uct} and did not introduced any improvement to the playing strength.
-The authors explained these results with the high branching factor this domain produces, which has discouraged the usage of this technique on the domain of \emph{Sueca}, since in an information set tree, the initial branching factor would also be high ($10^{8}$, $\Comb{40}{10}$).
+The authors explained these results with the high branching factor this domain produces, which has discouraged the usage of this technique on the domain of \emph{Sueca}, since in the information set tree, the initial branching factor would also be high ($10^{8}$, $\Comb{40}{10}$).
 
 
 %%% IIMC
-Recently, Furtak and Buro \cite{Furtak} presented a new search algorithm called \gls{iimc}.
-It can be suitably applied to hidden information games and reduces the \emph{strategy fusion} problem.
-During the simulation phase, each player's move is chosen inside a player's module.
-The game behaves as an imperfect information due to this encapsulation.
+Recently, Furtak and Buro \cite{Furtak} presented a new search algorithm called \gls{iimc} that can be suitably applied to hidden information games and reduces the \emph{strategy fusion} problem.
+During the simulation phase, each player's move is chosen inside a player's module and the game behaves as an imperfect information due to this encapsulation.
 Additionally, the players' modules allow the differentiation of players using different strategies.
 The authors revealed the great potential of this approach when applied to trick-based card games, considering it has been successfully tested in the Skat scenario.
 
@@ -96,7 +87,7 @@ However, assuming that different \gls{mcts} variations produce the exact same be
 
 The advantages and disadvantages of the mentioned \gls{mcts} variations are clearly summarised in Table~\ref{tab:algorithms}.
 Both of three techniques are easy to parallel and allow an offline computation. However, \gls{ismcts} uses the computational budget more efficiently than the other two techniques, and \gls{iimc} allows different player models per player.
-Considering the disadvantages, all the three techniques have the \emph{non-locality} and \emph{strategy fusion} problem, although \emph{strategy fusion} is lower in \gls{ismcts} and \gls{iimc}.
+Disadvantages show all the three techniques have the \emph{non-locality} and \emph{strategy fusion} problem, although \emph{strategy fusion} is lower in \gls{ismcts} and \gls{iimc}.
 Despite having a better computational budget, applying \gls{ismcts} to \emph{Sueca} should produce a similar behaviour to Dou Di Zhu, due to the high branching factor in the information set tree.
 The usage of different player models can be helpful to turn the game to an imperfect information game and, consequently, reduce the \emph{strategy fusion} problem.
 
@@ -144,23 +135,35 @@ Usually, opponent modelling uses optimal strategies to predict other players' ac
 Consequently, Long \& Buro in 2011 \cite{Long2009} suggested a post-processing analysis that is able to infer opponent's qualities based on their decisions in a certain environment.
 The main idea is to classify each opponent with a mistake rate and use that value to be more or less defensive.
 This approach, called \gls{pipma}, computes a procedure after each game episode (in a trick-taking card game, it would be after each trick) to incrementally update the mistake rate of each opponent.
-The authors made some experiments in a Skat player with very good results.
-The mistake rate adjusted the bidding behaviour during the game.
+The authors made some experiments in a Skat player with very good results, where they used the mistake rate to adjust the bidding behaviour during the game.
 %Likewise, the search improvements reduced about 40\% of the search space.
 Despite the fact that \emph{Sueca} does not have the bidding phase, classifying opponents with a mistake rate can useful to other purposes.
 As a result, it would be interesting to model the opponents in a similar way in the domain of \emph{Sueca}, in order to make better decisions or even for the embodied agent to produce adequate behaviours.
 
-Another highly suitable card game to make opponent models is Poker.
-Predicting the players' moves can naturally affect the outcome of this game.
+Another highly suitable card game to make opponent models is Poker, since predicting the players' moves can naturally affect the outcome of this game.
 In order to predict players' cards and their future actions, Posen et al. in 2010 \cite{Ponsen2008} have investigated this subject.
-Their opponent model starts with a prior distribution and changes over time with a differentiating function.
-The prior distribution allows it to make reasonable predictions while having insufficient information.
+They proposed an opponent model that starts with a prior distribution and changes over time with a differentiating function.
+The prior distribution allows it to make reasonable inferences while having insufficient information.
 In addition, the relational probability tree algorithm TILDE builds a decision tree with the stored samples of a player.
 This decision tree represents the differentiating function that will adapt the initial prior distribution.
-Besides modelling the opponents, the authors explain how to integrate this function with \gls{mcts}.
+Besides this opponent model, the authors explain how to integrate this function with \gls{mcts}.
 Instead of sampling the cards randomly, \gls{mcts} uses card predictions.
 Therefore, the algorithm does not need a numerous amount of iterations to reach a uniform card distribution.
 Furthermore, the probabilities of action predictions are used in the selection phase of the \gls{mcts}, according to the state of the game and the sampled cards.
 Since \gls{mcts} can be used in the \emph{Sueca} domain, a similar opponent model can also improve the capabilities of this algorithm, as shown in Poker.
 
+ 
+ \textbf{\begin{table}[h]
+\begin{tabular}{|c|l|l|c|}
+\hline
+\textbf{Tested domain} & \multicolumn{1}{c|}{\textbf{Technique}}     & \multicolumn{1}{c|}{\textbf{Goal}} & \textbf{Suitable to \emph\{Sueca\}} \\ \hline
+\multirow{4}{*}{Skat}  & Determine the winning probability of a hand & Improve the bidding                & \ding\{53\}                         \\ \cline{2-4} 
+                       & Fastes-cut-first heuristic                  & Order moves                        & \ding\{51\}                         \\ \cline{2-4} 
+                       & Considering similar states equally          & Reduce tree exploration            & \ding\{51\}                         \\ \cline{2-4} 
+                       & Calculate the mistake rate of each player   & Improve the bidding                & \~                                  \\ \hline
+Poker                  & Opponent model                              & Improve \gls\{mcts\} policies      & \ding\{51\}                         \\ \hline
+\end{tabular}
+\end{table}}
+ 
+ 
  
