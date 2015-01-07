@@ -109,6 +109,9 @@ The usage of different player models can be helpful to turn the game to an imper
 
 
 
+
+
+
 \subsubsection{Game State Inference \& Opponent Modelling}
 
 
@@ -152,7 +155,20 @@ Therefore, the algorithm does not need a numerous amount of iterations to reach 
 Furthermore, the probabilities of action predictions are used in the selection phase of the \gls{mcts}, according to the state of the game and the sampled cards.
 Since \gls{mcts} can be used in the \emph{Sueca} domain, a similar opponent model can also improve the capabilities of this algorithm, as shown in Poker.
 
+
+\bigskip
+
+Table~\ref{tab:belief} summarises what techniques have been reviewed, their purposes, and, finally, if they can be applied to the \emph{Sueca} domain.
+The technique of determining the winning probability cannot be used for the exact same purpose, since our domain does not include a bidding phase.
+The next two search enhancements can naturally be used due to the similarities between Skat and our domain game trees.
+The mistake rate was signed as conditionally suitable because it can also be used, although with a different purpose.
+Thinking in the embodied agent of our work, it can assign a mistake rate variable to each player and produce appropriate behaviours according to their values.
+A similar approach might be thought to use the winning probability, however, opponents' hands are not visible and the agent should not reveal its own information.
+The last technique also can be an addition to the \gls{mcts} base policies.
+
+
 \begin{table}[h]
+\caption{Game state inference and opponent modelling techniques. Techniques signed with \ding{53}, \ding{51} and $\sim$ symbols are, respectively, not suitable, suitable and conditionally suitable to the \emph{Sueca} domain.}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|C{0.1\textwidth}|l|l|C{0.12\textwidth}|}
 \hline
@@ -164,6 +180,7 @@ Since \gls{mcts} can be used in the \emph{Sueca} domain, a similar opponent mode
 Poker                  & Opponent model                              & Improve \gls{mcts} policies      & \ding{51}                         \\ \hline
 \end{tabular}
 }
+\label{tab:belief}
 \end{table}
 
  
