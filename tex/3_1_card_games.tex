@@ -152,6 +152,19 @@ Therefore, the algorithm does not need a numerous amount of iterations to reach 
 Furthermore, the probabilities of action predictions are used in the selection phase of the \gls{mcts}, according to the state of the game and the sampled cards.
 Since \gls{mcts} can be used in the \emph{Sueca} domain, a similar opponent model can also improve the capabilities of this algorithm, as shown in Poker.
 
- 
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|C{0.1\textwidth}|l|l|C{0.12\textwidth}|}
+\hline
+\textbf{Tested domain} & \multicolumn{1}{c|}{\textbf{Technique}}     & \multicolumn{1}{c|}{\textbf{Goal}} & \textbf{Suitable to \emph{Sueca}} \\ \hline
+\multirow{4}{*}{Skat}  & Determine the winning probability of a hand & Improve the bidding                & \ding{53}                         \\ \cline{2-4} 
+                       & Fastes-cut-first heuristic                  & Order moves                        & \ding{51}                         \\ \cline{2-4} 
+                       & Considering similar states equally          & Reduce tree exploration            & \ding{51}                         \\ \cline{2-4} 
+                       & Calculate the mistake rate of each player   & Improve the bidding                & $\sim$ \\ \hline
+Poker                  & Opponent model                              & Improve \gls{mcts} policies      & \ding{51}                         \\ \hline
+\end{tabular}
+}
+\end{table}
+
  
  
