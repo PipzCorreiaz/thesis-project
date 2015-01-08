@@ -25,7 +25,7 @@ It uses a maximisation function to evaluate the available nodes, according to th
     UCT = \overline{X}_j + c\sqrt{\frac{\ln n}{n_j}},
 \end{equation}
 
-where $\overline{X}_j$ represents the average value associated with option $j$ in the current state, $n_j$ is the number of times that option $j$ was selected in the current state, $n$ is the number of visits to the current state and c is an exploration parameter.
+where $\overline{X}_j$ represents the average value associated with option $j$ in the current state, $n_j$ is the number of times that option $j$ was selected in the current state, $n$ is the number of visits to the current state and $c$ is an exploration parameter.
 
 It models the reward of each child node as an independent multiarmed bandit problem.
 This means that, besides considering the already obtained average reward of a child node ($\overline{X}_j$), it also considers the maximum expected gain of that same child node ($c\sqrt{\frac{\ln n}{n_j}}$).
@@ -33,6 +33,6 @@ This function establishes an equilibrium between exploitation and exploration.
 Exploitation is evaluated in the first term of the equation by considering the average reward of a child node.
 The exploration is manipulated in the second term by balancing the amount of times the parent node and the child node $j$ have been visited (respectively, $n$ and $n_j$).
 A considerable amount of iterations will approximate the \gls{uct} to a minimax tree.
-Consequently, the produced results are nearly optimal.
+Consequently, the produced results are nearly optimal with high probability.
 
  
