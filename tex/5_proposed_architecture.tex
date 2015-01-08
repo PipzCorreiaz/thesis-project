@@ -1,19 +1,23 @@
 \section{Proposed Architecture} \label{sec:architecture}
 
 The current section will describe how to address the development of an artificial \emph{Sueca} player and its integration into an embodied agent that interacts with other players during the game.
-Firstly, it will present the chosen approaches in order to build the artificial \emph{Sueca} player (Section \ref{sec:sueca_solution}).
+First of all, it will present the chosen approaches in order to build the artificial \emph{Sueca} player (Section \ref{sec:sueca_solution}).
 Lastly, it will introduce the conceptual model and the architecture of the physical embodied agent that reacts socially according to the game state (Section \ref{sec:social_solution}).
 
 
 \subsection{\emph{Sueca}}
 \label{sec:sueca_solution}
 
-Currently, there are no artificial players of the \emph{Sueca} card game.
+Currently, there are no artificial players of the \emph{Sueca} card game and the review of the related work was focus on other hidden information games.
 Research has shown that the state of the art of imperfect information games is based on Monte Carlo methods.
-To build the \emph{Sueca} card game, the chosen approach is similar to what Buro et. al. has done in the Skat card game.
-These two games are identical, excluding the nonexistent bidding phase on \emph{Sueca}.
-Furtak et. al. have explored how \gls{pimc}'s results vary according to some of the game's properties and proved its benefits on Skat \cite{Long2010}.
-Due to the affinity between the two games, it is predictable that the results of applying \gls{pimc} to \emph{Sueca} are also satisfactory.
+To build the \emph{Sueca} card game, the chosen approach is similar to what Buro et. al. has firstly done in the Skat card game, since these two games are identical, excluding the nonexistent bidding phase on \emph{Sueca}.
+Moreover, Furtak et. al. have explored how \gls{pimc}'s results vary according to some of the game's properties and proved its benefits on Skat \cite{Long2010}, and, due to the affinity between the two games, it is predictable that the results of applying \gls{pimc} to \emph{Sueca} are also satisfactory.
+
+
+The idea is to evaluate \gls{pimc} responses in our domain, since no previous studies have been done.
+However, if further improvements are needed, \gls{ismcts} and \gls{iimc} are still available options.
+These two approaches were our first choice due to the computational burden they introduce.
+
 
 Furthermore, this \emph{Sueca} player will play against aged people.
 Since they are not world champions or are not even at a professional level, the power of the artificial player must be balanced.
@@ -21,16 +25,22 @@ On one hand, the idea is to create a challenging environment for the elderly.
 On the other hand, an existing concern is not to devastate their self-esteem.
 The motivation of this work is to create a pleasing and, at the same time, stimulating activity for the elderly.
 
-Additionally, a possible development strategy to follow is \gls{iimc}.
-Furtak et. al. shown how this algorithm can improve the results of their Skat player \cite{Furtak}.
-Depending on the results of applying \gls{pimc} to our domain, it will be considered a further upgrade to the \emph{Sueca} player.
+%Additionally, a possible development strategy to follow is \gls{iimc}.
+%Furtak et. al. shown how this algorithm can improve the results of their Skat player \cite{Furtak}.
+%Depending on the results of applying \gls{pimc} to our domain, it will be considered a further upgrade to the \emph{Sueca} player.
 
-To reinforce the sampling phase of \gls{pimc}, an opponent model similar to what has been done in Poker will be used \cite{Ponsen2008}.
+As a result, to reinforce the sampling phase of \gls{pimc}, an opponent model similar to what has been done in Poker will be used \cite{Ponsen2008}.
+With this technique, we aim to approximate our artificial agent to a common \emph{Sueca} player.
+
+
 This model will include cards and actions predictions.
 Instead of using the random sampling method of the original \gls{pimc}, cards probabilities will influence the cards sampling in each iteration of the algorithm.
 After sampling each world, actions predictions will be used in the simulation of a game to influence the opponents' moves.
-This approach aims to introduce some of the common mistakes that the usual player makes, instead of always considering optimal moves.
-As a result, several instances of \emph{Sueca} games will be collected in order to model a common player.
+This technique also aims to introduce some of the common mistakes that the usual player makes, instead of always considering optimal moves.
+
+
+In order to model opponents, several instances of \emph{Sueca} games will be collected.
+To easily register this game playing logs, an additional platform must be created.
 
 
 \subsection{The social robot in the game context}
@@ -38,7 +48,7 @@ As a result, several instances of \emph{Sueca} games will be collected in order 
 
 Along with the \emph{Sueca} player, this work aims to develop a robot that is socially present in the environment of the game scenario.
 In order to achieve this goal, many concerns arise.
-The model presented in Figure~\ref{fig:model} tries to solve and organise all the components involved.
+T\textit{}he model presented in Figure~\ref{fig:model} tries to solve and organise all the components involved.
 
 \begin{figure}[ht]
   \centering
