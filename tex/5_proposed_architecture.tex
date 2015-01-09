@@ -1,8 +1,8 @@
 \section{Proposed Architecture} \label{sec:architecture}
 
-The current section will describe how to address the development of an artificial \emph{Sueca} player and its integration into an embodied agent that interacts with other players during the game.
-First of all, it will present the chosen approaches in order to build the artificial \emph{Sueca} player (Section \ref{sec:sueca_solution}).
-Lastly, it will introduce the conceptual model and the architecture of the physical embodied agent that reacts socially according to the game state (Section \ref{sec:social_solution}).
+The current section describes how to address the development of an artificial \emph{Sueca} player and its integration into an embodied agent that interacts with other players during the game.
+First of all, it presents the chosen approaches in order to build the artificial \emph{Sueca} player (Section \ref{sec:sueca_solution}).
+Lastly, it introduces the conceptual model and the architecture of the physical embodied agent that reacts socially according to the game state (Section \ref{sec:social_solution}).
 
 
 \subsection{\emph{Sueca}}
@@ -10,13 +10,13 @@ Lastly, it will introduce the conceptual model and the architecture of the physi
 
 Currently, there are no artificial players of the \emph{Sueca} card game and the review of the related work was focus on other hidden information games.
 Research has shown that the state of the art of imperfect information games is based on Monte Carlo methods.
-To build the \emph{Sueca} card game, the chosen approach is similar to what Buro et. al. has firstly done in the Skat card game, since these two games are identical, excluding the nonexistent bidding phase on \emph{Sueca}.
-Moreover, Furtak et. al. have explored how \gls{pimc}'s results vary according to some of the game's properties and proved its benefits on Skat \cite{Long2010}, and, due to the affinity between the two games, it is predictable that the results of applying \gls{pimc} to \emph{Sueca} are also satisfactory.
+To build the \emph{Sueca} card game, the chosen approach is similar to what Buro et al. have done in the Skat card game, since these two games are identical, excluding the nonexistent bidding phase on \emph{Sueca}.
+Moreover, Furtak et al. have explored how \gls{pimc}'s results vary according to some of the game properties and have proved its benefits on Skat \cite{Long2010}, and, due to the affinity between the two games, it is predictable that the results of applying \gls{pimc} to \emph{Sueca} are also satisfactory.
 
 
 The idea is to evaluate \gls{pimc} responses in our domain, since no previous studies have been done.
 However, if further improvements are needed, \gls{ismcts} and \gls{iimc} are still available options.
-These two approaches were our first choice due to the computational burden they introduce.
+These two approaches were not our first choice due to the computational burden they introduce.
 
 
 Furthermore, this \emph{Sueca} player will play against aged people.
@@ -24,11 +24,9 @@ Since they are not world champions or are not even at a professional level, the 
 On one hand, the idea is to create a challenging environment for the elderly.
 On the other hand, an existing concern is not to devastate their self-esteem.
 The motivation of this work is to create a pleasing and, at the same time, stimulating activity for the elderly.
-
 %Additionally, a possible development strategy to follow is \gls{iimc}.
 %Furtak et. al. shown how this algorithm can improve the results of their Skat player \cite{Furtak}.
 %Depending on the results of applying \gls{pimc} to our domain, it will be considered a further upgrade to the \emph{Sueca} player.
-
 As a result, to reinforce the sampling phase of \gls{pimc}, an opponent model similar to what has been done in Poker will be used \cite{Ponsen2008}.
 With this technique, we aim to approximate our artificial agent to a common \emph{Sueca} player.
 

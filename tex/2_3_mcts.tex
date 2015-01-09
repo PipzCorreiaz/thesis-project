@@ -6,10 +6,10 @@ This method incrementally builds a search tree according to the results of previ
 The search tree is expanded by randomly sampling the nodes.
 Usually, it is divided into four steps, as described below.
 \begin{itemize}
-  \item Selection: Select a child node through a selection policy. This policy must balance between unexplored areas of the tree and promising nodes that may lead to higher rewards.
-  \item Expansion: Expand the selected node to add one or more nodes to the tree, according to the available actions.
-  \item Simulation: Select an expanded node through a simulation or default policy to produce an outcome.
-  \item Backpropagation: Propagate the reward value of all the selected nodes in order to update their statistics.
+  \item Selection: To select a child node through a selection policy. This policy must balance between unexplored areas of the tree and promising nodes that may lead to higher rewards.
+  \item Expansion: To expand the selected node to add one or more nodes to the tree, according to the available actions.
+  \item Simulation: To select an expanded node through a simulation or default policy to produce an outcome.
+  \item Backpropagation: To propagate the reward value of all the selected nodes in order to update their statistics.
 \end{itemize}
 
 
